@@ -44,7 +44,7 @@ const DUMMY_QUESTIONS = [
       question: 'Zu welcher Prophylaxe gehört das Anlegen der Kompressionsstrümpfe?',
       answers: [
         {'answerText': 'Sturzprophylaxe','score':false},
-        {'answerText': 'o	Thromboseprophylaxe','score':true},
+        {'answerText': 'Thromboseprophylaxe','score':true},
         {'answerText': 'Dehydratationsprophylaxe','score':false},
       ]
   ),
