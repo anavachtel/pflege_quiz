@@ -9,10 +9,13 @@ class QuestionScreen extends StatelessWidget {
   static const routeName = '/question';
 
   Widget buildSectionTitle(BuildContext context, String text) {
-    return  Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      child: Text(text, style:
-      Theme.of(context).textTheme.headline6,
+    return  Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: 10),
+        child: Text(text, style:
+        Theme.of(context).textTheme.headline6,
+        ),
       ),
     );
   }
