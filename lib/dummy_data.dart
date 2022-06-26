@@ -11,8 +11,12 @@ const DUMMY_CATEGORIES = [
       title: 'Diabetis Mellitus',
       color: Colors.red,
       img: 'firestore.png'),
+  Category(id: 'c3', title: 'Diabeti', color: Colors.red, img: 'firebase.png'),
+  Category(id: 'c4', title: 'Diabeti', color: Colors.red, img: 'firebase.png'),
+  Category(id: 'c3', title: 'Diabeti', color: Colors.red, img: 'firebase.png'),
   Category(id: 'c3', title: 'Diabeti', color: Colors.red, img: 'firebase.png')
 ];
+
 
 const DUMMY_QUESTIONS = [
   Question(

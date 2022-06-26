@@ -23,7 +23,7 @@ class TabsScreen extends StatefulWidget {
   @override
     Widget build(BuildContext context) {
      return Scaffold(
-      appBar: AppBar(title: Text(_pages[_selectedPageIndex]['title'] as String) ,
+      appBar: AppBar(title: Text(_pages[_selectedPageIndex]['title'] as String),
         ),
       body: _pages[_selectedPageIndex]['page'] as Widget,
        bottomNavigationBar: BottomNavigationBar(
@@ -37,6 +37,9 @@ class TabsScreen extends StatefulWidget {
                label: 'Categories'),
        BottomNavigationBarItem(icon: Icon(Icons.question_mark),
          label: 'Quiz'
+           ),
+           BottomNavigationBarItem(icon: Icon(Icons.person),
+               label: 'Profile'
            )
          ],
        ),

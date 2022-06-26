@@ -26,6 +26,17 @@ class CategoryItem extends StatelessWidget {
       splashColor: Theme.of(context).primaryColor,
       child: Container(
         padding: const EdgeInsets.all(0),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              color.withOpacity(0.9),
+              color,
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.circular(15),
+        ),
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -33,7 +44,7 @@ class CategoryItem extends StatelessWidget {
               Flexible(
                 flex: 3,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       topRight: Radius.circular(15.0),
                       topLeft: Radius.circular(15.0)),
                   child: Image.asset(
@@ -56,17 +67,6 @@ class CategoryItem extends StatelessWidget {
                     ),
                   ))
             ]),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              color.withOpacity(0.9),
-              color,
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          borderRadius: BorderRadius.circular(15),
-        ),
       ),
     );
   }
