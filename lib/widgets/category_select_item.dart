@@ -12,14 +12,17 @@ class CategorySelectItem extends StatelessWidget {
   CategorySelectItem(this.id, this.title, this.color);
   // zum weiterleiten auf nächste Seite
   void selectSubCategory(BuildContext ctx) {
+    print(CategoryQuestionScreen.routeName);
     Navigator.of(ctx).pushNamed(
       //WARUM GEHT DAS NICHT?
       CategoryQuestionScreen.routeName,
+
       arguments: {
         'id' : id,
         'title': title,
 
       },
+
     );
 /*    Navigator.of(ctx).push(
       MaterialPageRoute(builder: (_) {

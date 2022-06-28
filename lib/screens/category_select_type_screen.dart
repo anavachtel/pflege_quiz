@@ -6,7 +6,7 @@ import 'package:meals_app/widgets/category_select_item.dart';
 import '../dummy_data.dart';
 
 class CategorySelectTypeScreen extends StatelessWidget{
-  static const routeName = '/category-questions';
+  static const routeName = '/category-questions-select';
 
   @override
   Widget build (BuildContext context) {
