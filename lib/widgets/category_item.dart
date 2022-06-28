@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/screens/category_select_type_screen.dart';
 
 import '../screens/category_question_screen.dart';
 
@@ -9,9 +10,11 @@ class CategoryItem extends StatelessWidget {
   final String img;
   CategoryItem(this.id, this.title, this.color, this.img);
 
+  // zum weiterleiten auf nächste Seite
   void selectCategory(BuildContext ctx) {
     Navigator.of(ctx).pushNamed(
-      CategoryQuestionScreen.routeName,
+      CategorySelectTypeScreen.routeName,
+  //    CategoryQuestionScreen.routeName,
       arguments: {
         'id': id,
         'title': title,

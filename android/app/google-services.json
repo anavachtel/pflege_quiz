@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "696791177449",
+    "project_id": "pflege-d3c00",
+    "storage_bucket": "pflege-d3c00.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:696791177449:android:b2c30b09a1eaf7a65e7878",
+        "android_client_info": {
+          "package_name": "com.example.meals_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "696791177449-83aegrq7qee4664vkqiee7tnj4g7rtl9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJyvSv3403lYRAbWESBfVokha-q-GOBSc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "696791177449-83aegrq7qee4664vkqiee7tnj4g7rtl9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -4,9 +4,8 @@ import 'package:flutter/material.dart';
 import '../dummy_data.dart';
 import '../widgets/question_item.dart';
 class CategoryQuestionScreen extends StatelessWidget {
-  static const routeName = '/category-meals';
+  static const routeName = '/category-questions';
 
-  const CategoryQuestionScreen({Key? key}) : super(key: key);
 //  final String categoryId;
 //  final String categoryTitle;
 
@@ -15,14 +14,15 @@ class CategoryQuestionScreen extends StatelessWidget {
   Widget build (BuildContext context) {
     final routeArgs = ModalRoute.of(context)!.settings.arguments as Map<String, String>;
     final categoryId = routeArgs['id'];
-    final categoryTitle = routeArgs['title'];
-    final categoryQuestion = DUMMY_QUESTIONS.where((question) {
-      return question.category.contains(categoryId!);
+    final subcategory = routeArgs['subcategory'];
+    final categoryQuestion = DUMMY_QUESTIONS.where((question){
+      return question.category.contains(categoryId!)&&question.subcategory.contains(subcategory!);
     }).toList();
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          categoryTitle!)
+    //      categoryTitle!
+        'Category_question_screen')
         ,),
         body:
         ListView.builder(itemBuilder: (ctx, index) {

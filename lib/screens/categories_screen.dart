@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/widgets/category_select_item.dart';
 
 import '../dummy_data.dart';
 import '../widgets/category_item.dart';
 
+// SEite wird beim Aufruf von TabsScreen aufgerufen
+
 class CategoriesScreen extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return GridView(
@@ -11,8 +15,8 @@ class CategoriesScreen extends StatelessWidget {
       children: DUMMY_CATEGORIES
           .map(
             (catData) => CategoryItem(
-                catData.id, catData.title, catData.color, catData.img),
-          )
+            catData.id, catData.title, catData.color, catData.img),
+      )
           .toList(),
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 200,

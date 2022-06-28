@@ -2,6 +2,23 @@ import 'package:flutter/material.dart';
 
 import './models/category.dart';
 import 'models/question.dart';
+import 'models/subcategory.dart';
+
+const DUMMY_SELECT = [
+  Subcategory (
+    id: 'sc1',
+    title: 'Fallbeispiele',
+    color: Colors.purple
+  ),
+  Subcategory(
+      id: 'sc2',
+      title: 'Multiple Choice',
+      color: Colors.lightBlueAccent),
+  Subcategory(
+      id: 'sc3',
+      title: 'Freitext',
+      color: Colors.green)
+];
 
 const DUMMY_CATEGORIES = [
   Category(
@@ -28,7 +45,7 @@ const DUMMY_QUESTIONS = [
         {'answerText': 'Starker Juckreiz', 'score': true},
         {'answerText': 'Ödembildung', 'score': false},
         {'answerText': 'Diarrhoe', 'score': false},
-      ]),
+      ], subcategory: 'mc'),
   Question(
       id: 'q2',
       category: 'c2',
@@ -40,7 +57,7 @@ const DUMMY_QUESTIONS = [
           'score': false
         },
         {'answerText': 'Stoffwechselerkrankung', 'score': true},
-      ]),
+      ], subcategory: 'mc'),
   Question(
       id: 'q3',
       category: 'c1',
@@ -50,5 +67,5 @@ const DUMMY_QUESTIONS = [
         {'answerText': 'Sturzprophylaxe', 'score': false},
         {'answerText': 'Thromboseprophylaxe', 'score': true},
         {'answerText': 'Dehydratationsprophylaxe', 'score': false},
-      ]),
+      ], subcategory: 'mc'),
 ];
