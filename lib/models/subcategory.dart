@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
-class Subcategory {
+import 'category.dart';
+
+class SubCategory {
+
   final String id;
   final String title;
   final Color color;
 
 
-  const Subcategory({
-    required this.id,
-    required this.title,
-    required this.color});
-
-
-}
+  const SubCategory(
+  {required this.id,
+  required this.title,
+  this.color = Colors.orange,
+  });
+  }

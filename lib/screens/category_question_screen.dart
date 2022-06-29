@@ -14,9 +14,9 @@ class CategoryQuestionScreen extends StatelessWidget {
   Widget build (BuildContext context) {
     final routeArgs = ModalRoute.of(context)!.settings.arguments as Map<String, String>;
     final categoryId = routeArgs['id'];
-    final subcategory = routeArgs['subcategory'];
+    final categoryTitle = routeArgs['title'];
     final categoryQuestion = DUMMY_QUESTIONS.where((question){
-      return question.category.contains(categoryId!)&&question.subcategory.contains(subcategory!);
+      return question.category.contains(categoryId!);
     }).toList();
     return Scaffold(
       appBar: AppBar(

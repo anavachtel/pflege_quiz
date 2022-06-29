@@ -1,37 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/models/subcategory.dart';
 
 import './models/category.dart';
 import 'models/question.dart';
-import 'models/subcategory.dart';
 
-const DUMMY_SELECT = [
-  Subcategory (
-    id: 'sc1',
-    title: 'Fallbeispiele',
-    color: Colors.purple
-  ),
-  Subcategory(
-      id: 'sc2',
-      title: 'Multiple Choice',
-      color: Colors.lightBlueAccent),
-  Subcategory(
-      id: 'sc3',
-      title: 'Freitext',
-      color: Colors.green)
-];
+
 
 const DUMMY_CATEGORIES = [
   Category(
-      id: 'c1', title: 'Varikosis', color: Colors.purple, img: 'angular.png'),
+      id: 'c1', title: 'Varikosis', color: Colors.purple, img: 'angular.png', subcategories: [
+    SubCategory(id: 'sc1', title: 'Fallbeispiel'),
+    SubCategory(id: 'sc2', title: 'Multiple Choice'),
+    SubCategory(id: 'sc3', title: 'Freitext')
+  ]),
   Category(
       id: 'c2',
       title: 'Diabetis Mellitus',
       color: Colors.red,
-      img: 'firestore.png'),
-  Category(id: 'c3', title: 'Diabeti', color: Colors.red, img: 'firebase.png'),
-  Category(id: 'c4', title: 'Diabeti', color: Colors.red, img: 'firebase.png'),
-  Category(id: 'c3', title: 'Diabeti', color: Colors.red, img: 'firebase.png'),
-  Category(id: 'c3', title: 'Diabeti', color: Colors.red, img: 'firebase.png')
+      img: 'firestore.png',
+      subcategories: [
+        SubCategory(id: 'sc1', title: 'Fallbeispiel'),
+        SubCategory(id: 'sc2', title: 'Multiple Choice'),
+        SubCategory(id: 'sc3', title: 'Freitext')
+      ]),
+  Category(id: 'c3', title: 'Diabeti', color: Colors.red, img: 'firebase.png', subcategories: [
+    SubCategory(id: 'sc1', title: 'Fallbeispiel'),
+    SubCategory(id: 'sc2', title: 'Multiple Choice'),
+    SubCategory(id: 'sc3', title: 'Freitext')
+
+  ]),
+  Category(id: 'c4', title: 'Diabeti', color: Colors.red, img: 'firebase.png', subcategories: [
+    SubCategory(id: 'sc1', title: 'Fallbeispiel'),
+    SubCategory(id: 'sc2', title: 'Multiple Choice'),
+    SubCategory(id: 'sc3', title: 'Freitext')
+  ]),
+  Category(id: 'c3', title: 'Diabeti', color: Colors.red, img: 'firebase.png', subcategories: [
+    SubCategory(id: 'sc1', title: 'Fallbeispiel'),
+    SubCategory(id: 'sc2', title: 'Multiple Choice'),
+    SubCategory(id: 'sc3', title: 'Freitext')
+  ]),
+  Category(id: 'c3', title: 'Diabeti', color: Colors.red, img: 'firebase.png', subcategories: [
+    SubCategory(id: 'sc1', title: 'Fallbeispiel'),
+    SubCategory(id: 'sc2', title: 'Multiple Choice'),
+    SubCategory(id: 'sc3', title: 'Freitext')
+  ])
 ];
 
 

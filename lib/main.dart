@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/screens/category_select_type_screen.dart';
+import 'package:meals_app/models/category.dart';
+import 'package:meals_app/screens/selected_category_screen.dart';
 import 'package:meals_app/screens/question_screen.dart';
 import 'package:meals_app/widgets/category_select_item.dart';
 import 'screens/tabs_screen.dart';
@@ -38,7 +39,8 @@ class MyApp extends StatelessWidget {
         '/': (ctx) => TabsScreen(),
         CategoryQuestionScreen.routeName: (ctx) => CategoryQuestionScreen(),
         QuestionScreen.routeName: (ctx) => QuestionScreen(),
-        CategorySelectTypeScreen.routeName: (ctx) => CategorySelectTypeScreen()
+        SelectedCategoryScreen.routeName: (ctx) => SelectedCategoryScreen()
+
       },
     );
   }
