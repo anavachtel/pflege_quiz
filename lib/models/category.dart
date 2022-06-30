@@ -3,19 +3,42 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/foundation.dart';
-import 'package:meals_app/models/subcategory.dart';
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
 class Category {
-  final String id;
-  final String title;
-  final Color color;
-  final String img;
-  final List <SubCategory> subcategories;
+  String name;
+  Color color;
+  String img;
 
-  const Category(
-      {required this.id,
-        required this.title,
-        this.color = Colors.orange,
-        required this.img,
-        required this.subcategories, });
+
+  Category(
+      {
+        required this.name,
+        required this.color,
+        required this.img
+      }
+      );
+  factory Category.fromJson(Map<String, dynamic> json) {
+    return Category(
+        color: Color(int.parse('0xFF' + json['color'])),
+        name: json['name'],
+        img: json['img'],
+
+        //method from subcategory class
+
+
+
+    );
+  }
 }
+
+
+  //to map a json structure
+
+
+
+
+

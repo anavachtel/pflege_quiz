@@ -29,6 +29,13 @@
             {
               "client_id": "696791177449-83aegrq7qee4664vkqiee7tnj4g7rtl9.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "696791177449-e42gntlfq3jo8hvvclgk7v2u6qvkfkui.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mealsApp"
+              }
             }
           ]
         }
