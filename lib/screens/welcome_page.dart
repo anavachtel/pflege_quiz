@@ -1,12 +1,19 @@
+
 import 'package:flutter/material.dart';
+import 'package:meals_app/services/login_service.dart';
+import 'package:provider/provider.dart';
 
 
 import '../helpers/appcolors.dart';
 import 'categories_list.dart';
 
 class WelcomePage extends StatelessWidget {
+
+
+
   @override
   Widget build(BuildContext context) {
+    LoginService loginService = Provider.of<LoginService>(context, listen: false);
     return Scaffold(
         body: Container(
             color: Colors.black,
@@ -57,7 +64,12 @@ class WelcomePage extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.all(20.0),
                             child: FlatButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => CategoryListPage())
+                                );
+                              },
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(50)
                               ),
@@ -73,6 +85,7 @@ class WelcomePage extends StatelessWidget {
 
                             ),
                           ),
+                          //button
                           Container(
                               margin: EdgeInsets.only(left: 20, right: 20, bottom: 20),
                               child: ClipRRect(
@@ -82,11 +95,15 @@ class WelcomePage extends StatelessWidget {
                                     child: InkWell(
                                       splashColor: AppColors.MAIN_COLOR.withOpacity(0.2),
                                       highlightColor: AppColors.MAIN_COLOR.withOpacity(0.2),
-                                      onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(builder: (context) => CategoryListPage())
-                                        );
+                                      onTap: () async {
+                                       bool success = await loginService.signInWithGoogle();
+
+                                       if (success) {
+                                         Navigator.push(
+                                             context,
+                                             MaterialPageRoute(builder: (context) => CategoryListPage())
+                                         );
+                                       }
                                       },
                                       child: Container(
                                         padding: const EdgeInsets.all(20),
@@ -106,11 +123,15 @@ class WelcomePage extends StatelessWidget {
                                                 fontWeight: FontWeight.bold
                                             )
                                         ),
+
                                       ),
+
+
                                     )
                                 ),
                               )
                           )
+
                         ]
                     )
                 ),

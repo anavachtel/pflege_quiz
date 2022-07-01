@@ -63,6 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '696791177449',
     projectId: 'pflege-d3c00',
     storageBucket: 'pflege-d3c00.appspot.com',
+    androidClientId: '696791177449-5retk4irko49ggc8qi6uvqdk4qcboiv9.apps.googleusercontent.com',
     iosClientId: '696791177449-e42gntlfq3jo8hvvclgk7v2u6qvkfkui.apps.googleusercontent.com',
     iosBundleId: 'com.example.mealsApp',
   );

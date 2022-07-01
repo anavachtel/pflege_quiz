@@ -1,8 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:meals_app/screens/welcome_page.dart';
+import 'package:meals_app/services/category_service.dart';
 import 'package:provider/provider.dart';
 
 
+import '../firebase_options.dart';
 import '../helpers/appcolors.dart';
 
 
@@ -19,19 +22,54 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    Firebase.initializeApp(
+      name: 'pflege-d3c00',
+      options: DefaultFirebaseOptions.currentPlatform,
+    ).whenComplete(() {
+      print("completedAppInitialize");
+    } );
+
+    CategoryService catService = Provider.of<CategoryService>(context, listen: false);
     Future.delayed(Duration(seconds: duration), ()
     {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => this.goToPage)
-      );
+
+      catService.getCategoriesFromCollectionFromFirebase()
+      .then((value){
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => this.goToPage)
+        );
+      });
+
     });
     return Scaffold(
         body: Container(
           color: AppColors.MAIN_COLOR,
           child: Center(
-            child: Icon(Icons.local_hospital_outlined, color: Colors.white, size: 100),
+            child: Stack(
+                children: [
+                  Align(
+                    alignment: Alignment.center,
+                  child: Icon(
+        Icons.account_circle_rounded,
+        color: Colors.white, size: 100)
+    ),
+    Align(
+      alignment: Alignment.center,
+      child: SizedBox(
+        width: 150,
+        height: 150,
+        child: CircularProgressIndicator(
+          strokeWidth: 10,
+        valueColor: AlwaysStoppedAnimation<Color>(
+        Colors.white.withOpacity(0.5)
+        )
+        ),
+      ),
+    )
+    ],
           ),
         )
+    )
     );
   }
 }

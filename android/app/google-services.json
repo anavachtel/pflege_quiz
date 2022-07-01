@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "696791177449-5retk4irko49ggc8qi6uvqdk4qcboiv9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.meals_app",
+            "certificate_hash": "024931d9af39049d4ccbce3d5e46baef33b21b41"
+          }
+        },
+        {
           "client_id": "696791177449-83aegrq7qee4664vkqiee7tnj4g7rtl9.apps.googleusercontent.com",
           "client_type": 3
         }
