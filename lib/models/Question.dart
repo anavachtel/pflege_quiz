@@ -1,12 +1,16 @@
 class Question {
 
   String question;
-  Map<String, bool> answers;
+  String option1;
+  String option2;
+  String correctOption;
 
   Question(
   {
     required this.question,
-    required this.answers
+    required this.option1,
+    required this.option2,
+    required this.correctOption
 }
       );
 

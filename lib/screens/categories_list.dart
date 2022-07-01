@@ -52,7 +52,7 @@ class CategoryListPage extends StatelessWidget {
                         onCardClick: () {
                           Navigator.push(context, MaterialPageRoute(builder: (
                               context) =>
-                              SelectedCategoryPage(selectedCategory: catService.getCategories()[0],)));
+                              SelectedCategoryPage(selectedCategory: catService.getCategories()[index],)));
                         }
                     );
                   },
