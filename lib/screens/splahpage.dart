@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:meals_app/screens/welcome_page.dart';
 import 'package:meals_app/services/category_service.dart';
+import 'package:meals_app/services/question_service.dart';
 import 'package:provider/provider.dart';
 
 
@@ -30,9 +31,11 @@ class SplashPage extends StatelessWidget {
     } );
 
     CategoryService catService = Provider.of<CategoryService>(context, listen: false);
+    QuestionService qService = Provider.of<QuestionService>(context, listen: false);
     Future.delayed(Duration(seconds: duration), ()
     {
 
+      qService.getQuestionsFromCollectionFromFirebase();
       catService.getCategoriesFromCollectionFromFirebase()
       .then((value){
         Navigator.push(

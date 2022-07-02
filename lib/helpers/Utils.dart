@@ -6,14 +6,7 @@ import 'appcolors.dart';
 
 class Utils {
 
-  static List<Question>getMockedQuestions() {
-    return [
-      Question(
-          question: 'Was ist Diabetes mellitus für eine Erkrankung?',
-          option1: 'Herz-Kreislauf-Erkrankung',
-          option2: 'Tumorerkrankung',
-          correctOption: 'Stoffwechselerkrankung')
-    ];
+
    /*
   static List <Category> getMockedCategories() {
     return [
@@ -45,4 +38,3 @@ class Utils {
 
 
   }
-}
