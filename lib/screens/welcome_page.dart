@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 
 import '../helpers/appcolors.dart';
 import 'categories_list.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class WelcomePage extends StatelessWidget {
 
 
@@ -40,7 +40,7 @@ class WelcomePage extends StatelessWidget {
                                   width: 180,
                                   color: AppColors.MAIN_COLOR,
                                   child: Icon(
-                                      Icons.add, color: Colors.white, size: 100),
+                                      FontAwesomeIcons.userNurse, color: Colors.white, size: 100),
                                 )
                             ),
                           ),

@@ -3,15 +3,19 @@ import 'package:firebase_core/firebase_core.dart';
 
 import '../models/category.dart';
 
+//stellt die Firebase connection zu Kategorien her
+
 class CategoryService {
 
   FirebaseFirestore? _instance;
 
+  //leere liste
   List<Category> _categories = [];
 
   List<Category> getCategories() {
     return _categories;
   }
+  // wird am Anfang in Spashpage aufgerufen
   Future<void> getCategoriesFromCollectionFromFirebase() async {
     _instance = FirebaseFirestore.instance;
 
@@ -21,13 +25,11 @@ class CategoryService {
     var data = snapshot.data() as Map;
     var categoriesData = data['categories'] as Map <String, dynamic>;
 
+    //iteriert durch Kategorien und befüllt Liste
     categoriesData.forEach((key, catData) {
       Category cat = Category.fromJson(catData);
       _categories.add(cat);
     });
-  /*  categoriesData.forEach((catData) {
-      Category cat = Category.fromJson(catData);
-      _categories.add(cat);
-    });*/
+
   }
 }

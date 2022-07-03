@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+//für das Quiz
+
 class Answer extends StatelessWidget {
-  final String answerText;
+  final String ?answerText;
   final Color answerColor;
   final  VoidCallback answerTap;
 
@@ -21,7 +23,7 @@ class Answer extends StatelessWidget {
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: Text(
-          answerText,
+          answerText!,
           style: TextStyle(
             fontSize: 15.0,
           ),

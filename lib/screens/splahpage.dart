@@ -23,6 +23,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    //firebase verbindung
     Firebase.initializeApp(
       name: 'pflege-d3c00',
       options: DefaultFirebaseOptions.currentPlatform,
@@ -34,7 +35,7 @@ class SplashPage extends StatelessWidget {
     QuestionService qService = Provider.of<QuestionService>(context, listen: false);
     Future.delayed(Duration(seconds: duration), ()
     {
-
+// startseite wird erst angezeigt, wenn Firebase Connection hergestellt ist
       qService.getQuestionsFromCollectionFromFirebase();
       catService.getCategoriesFromCollectionFromFirebase()
       .then((value){
@@ -44,6 +45,7 @@ class SplashPage extends StatelessWidget {
       });
 
     });
+    //Forntend
     return Scaffold(
         body: Container(
           color: AppColors.MAIN_COLOR,
