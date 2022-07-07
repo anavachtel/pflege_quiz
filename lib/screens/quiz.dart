@@ -13,7 +13,7 @@ class Quiz extends StatefulWidget {
 
 }
   class _QuizState extends State<Quiz> {
-  List<Question> questions = [];
+  List<Question> questions = const [];
   List<Answers> answers = [];
   List<Icon> _scoreTracker = [];
   int _questionIndex = 0;
@@ -21,6 +21,9 @@ class Quiz extends StatefulWidget {
   bool answerWasSelected = false;
   bool endOfQuiz = false;
   bool correctAnswerSelected = false;
+  String answer = '';
+  bool value = false;
+
 
 
   void _questionAnswered(bool answerScore) {
@@ -65,6 +68,10 @@ class Quiz extends StatefulWidget {
   Widget build(BuildContext context) {
     QuestionService qService = Provider.of<QuestionService>(context, listen: false);
     questions = qService.getQuestions();
+    print('Quiz');
+    print(questions);
+
+
 
 
 
@@ -113,28 +120,26 @@ class Quiz extends StatefulWidget {
   ),
   ),
   ),
-    ...(answers)
+    ...(questions[_questionIndex].answers
+    as List<dynamic>)
         .map(
-      (answer) => Answer(
+          (answer) => Answer(
+        answerText: answer['antwort'].toString(),
         answerColor: answerWasSelected
-        ? questions[_questionIndex].answers as bool
+            ? answer['value'] as bool
             ? Colors.green
             : Colors.red
             : Colors.white,
-        answerText: questions[_questionIndex].answers as String,
         answerTap: () {
-          answerTap:
-              () {
-            // if answer was already selected then nothing happens onTap
-            if (answerWasSelected) {
-              return;
-            }
-            //answer is being selected
-            _questionAnswered(questions[_questionIndex].answers as bool);
-          };
-        })
+          // if answer was already selected then nothing happens onTap
+          if (answerWasSelected) {
+            return;
+          }
+          //answer is being selected
+          _questionAnswered(answer['value'] as bool);
+        },
       ),
-
+    ),
 
     /*(answer) => Answers(
     answer: answer,

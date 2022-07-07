@@ -11,7 +11,7 @@ class Question {
 
   String ?question;
 
-  List <dynamic> ?answers;
+  List ?answers;
 
   Question(
   {
@@ -52,9 +52,7 @@ class Question {
  @override
   String toString() {
 
-   print('muh');
-   print(question);
-   print(answers);
+
     return '$answers'
       '$question';
   }
@@ -62,7 +60,8 @@ class Question {
   factory Question.fromJson(Map<String, dynamic> json) {
     print('json');
     print(json['Frage'].toString());
-    print((json['Antwort']));
+    print(json['Antwort']);
+
 
 
     return Question(
@@ -71,6 +70,14 @@ class Question {
        //Answers.fromJson(json['answers']));
   }
 
+  void getKeysAndValuesUsingForEach(Map map) {
+    // Get all keys and values at the same time using map.forEach
+    print('----------');
+    print('Get keys and values using map.forEach:');
+    map.forEach((key, value) {
+      print('Key = $key : Value = $value');
+    });
+  }
 
 
 //  String toJson() => json.encode(toMap());

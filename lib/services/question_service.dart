@@ -9,10 +9,13 @@ class QuestionService {
 
   List<Question> _questions = [];
   List<Answers> _answers = [];
+  String answerr = '';
+  bool value = false;
 
   List<Question> getQuestions() {
     print('getquestions');
     print(_questions);
+
     return _questions;
   }
   Future<void> getQuestionsFromCollectionFromFirebase() async {
@@ -23,10 +26,13 @@ class QuestionService {
     DocumentSnapshot snapshot = await questions.doc('Fragen').get();
     var data = snapshot.data() as Map;
     var questionsData = data['Varikosis'] as Map;
-    var question = questionsData['Fragen'] as List;
-    /*var answer = question[0] as Map;
+    var questionn = questionsData['Fragen'] as List;
+    var answer = questionn[0] as Map;
     var ques = answer['Frage'] as String;
     var ans = answer['Antwort'] as List;
+
+    /*
+
     print('data');
     print(questionsData);
     print(question);
@@ -37,11 +43,29 @@ class QuestionService {
   //  print(answerData);
    // print(answerData);
 
-    for (var catData in question) {
+    for (var catData in questionn) {
       Question question = Question.fromJson(catData);
       _questions.add(question);
+      print('questions');
       print(_questions);
     }
+
+    questionsData.forEach((k, v) =>
+        print("Key : $k, Value : $v"));
+
+        print("Values from json data:");
+    for(int i=0; i<data['Varikosis'].length; i++){
+      print(questionn[i]['Frage']);
+    }
+    for(int i=0; i<answer['Antwort'].length; i++){
+      print(ans[i]['antwort']);
+    }
+  }
+
+
+
+
+
 
 
 
@@ -51,4 +75,3 @@ class QuestionService {
       _categories.add(cat);
     });*/
   }
-}
