@@ -1,24 +1,15 @@
-
 import 'dart:convert';
 
-
 import 'package:flutter/rendering.dart';
-
 
 import 'answers.dart';
 
 class Question {
+  String? question;
 
-  String ?question;
+  List<dynamic>? answers;
 
-  List ?answers;
-
-  Question(
-  {
-    required this.question,
-    required this.answers
-}
-      );
+  Question({required this.question, required this.answers});
 
 /*
 
@@ -29,8 +20,7 @@ class Question {
       }
 */
 
-
- /* Map<String, dynamic> toJson() {
+  /* Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     final answers = this.answers;
     if (answers != null) {
@@ -49,41 +39,26 @@ class Question {
   }
 
  */
- @override
+  @override
   String toString() {
-
-
+    print('muh');
+    print(question);
+    print(answers);
     return '$answers'
-      '$question';
+        '$question';
   }
 
   factory Question.fromJson(Map<String, dynamic> json) {
     print('json');
     print(json['Frage'].toString());
-    print(json['Antwort']);
-
-
+    print((json['Antwort']));
 
     return Question(
-        question: json['Frage'].toString(),
+        question: json['Frage'].toString().replaceAll("\\n", "\n"),
         answers: json['Antwort']);
-       //Answers.fromJson(json['answers']));
+    //Answers.fromJson(json['answers']));
   }
-
-  void getKeysAndValuesUsingForEach(Map map) {
-    // Get all keys and values at the same time using map.forEach
-    print('----------');
-    print('Get keys and values using map.forEach:');
-    map.forEach((key, value) {
-      print('Key = $key : Value = $value');
-    });
-  }
-
 
 //  String toJson() => json.encode(toMap());
-
-
-
-
 
 }

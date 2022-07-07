@@ -1,26 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/helpers/appcolors.dart';
-import 'package:meals_app/screens/question_list.dart';
+import 'package:meals_app/models/Question.dart';
 import 'package:meals_app/screens/quiz.dart';
-import 'package:provider/provider.dart';
 
 import '../helpers/Utils.dart';
 import '../models/category.dart';
-import '../services/question_service.dart';
 import 'fragen.dart';
 
-class SelectedCategoryPage extends StatelessWidget {
-  Category selectedCategory;
+class SelectedQuestionPage extends StatelessWidget {
+  Question selectedQuestion;
 
-
-  SelectedCategoryPage({required this.selectedCategory});
+  SelectedQuestionPage({required this.selectedQuestion});
   @override
   Widget build(BuildContext context) {
-    QuestionService qService = Provider.of<QuestionService>(context, listen: false);
-    qService.getQuestionsFromCollectionFromFirebase(selectedCategory);
     return Scaffold(
         appBar: AppBar(
-          title: Text(selectedCategory.name),
+          title: Text(selectedQuestion.question.toString()),
         ),
         body: Container(
             child: Center(
@@ -34,7 +29,7 @@ class SelectedCategoryPage extends StatelessWidget {
                     // Respond to button press
                   },
                   child: Text(
-                    'Fallbeispiel',
+                    'Frage 1',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
@@ -57,7 +52,7 @@ class SelectedCategoryPage extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => Fragen()));
                   },
                   child: Text(
-                    'Fragen',
+                    'Fragen 2',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
@@ -76,13 +71,11 @@ class SelectedCategoryPage extends StatelessWidget {
               child: ElevatedButton(
                   onPressed: () {
                     // Respond to button press
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => QuestionListPage()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Quiz()));
                   },
                   child: Text(
-                    'Quiz',
+                    'Quiz was',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
