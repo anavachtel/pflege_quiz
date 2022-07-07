@@ -36,7 +36,7 @@ class SplashPage extends StatelessWidget {
     Future.delayed(Duration(seconds: duration), ()
     {
 // startseite wird erst angezeigt, wenn Firebase Connection hergestellt ist
-      qService.getQuestionsFromCollectionFromFirebase();
+
       catService.getCategoriesFromCollectionFromFirebase()
       .then((value){
         Navigator.push(

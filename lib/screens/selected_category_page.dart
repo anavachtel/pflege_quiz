@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/helpers/appcolors.dart';
 import 'package:meals_app/screens/quiz.dart';
+import 'package:provider/provider.dart';
 
 import '../helpers/Utils.dart';
 import '../models/category.dart';
+import '../services/question_service.dart';
 import 'fragen.dart';
 
 class SelectedCategoryPage extends StatelessWidget {
 
   Category selectedCategory;
 
+
   SelectedCategoryPage({required this.selectedCategory});
   @override
   Widget build(BuildContext context) {
+    QuestionService qService = Provider.of<QuestionService>(context, listen: false);
+    qService.getQuestionsFromCollectionFromFirebase(selectedCategory);
     return Scaffold(
 
         appBar: AppBar(

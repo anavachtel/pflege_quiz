@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:meals_app/models/answers.dart';
+
 
 import '../models/Question.dart';
 // Firebase Verbindung, die Fragen zieht
@@ -7,25 +9,32 @@ class QuestionService {
 
   FirebaseFirestore? _instance;
 
+  late Category selectedCategory;
+
   List<Question> _questions = [];
   List<Answers> _answers = [];
   String answerr = '';
   bool value = false;
 
+
+
   List<Question> getQuestions() {
     print('getquestions');
     print(_questions);
 
+
     return _questions;
   }
-  Future<void> getQuestionsFromCollectionFromFirebase() async {
+  Future<void> getQuestionsFromCollectionFromFirebase(selectedCategory) async {
     _instance = FirebaseFirestore.instance;
+    print(selectedCategory);
 
     CollectionReference questions = _instance!.collection('pflegequiz');
 
     DocumentSnapshot snapshot = await questions.doc('Fragen').get();
     var data = snapshot.data() as Map;
-    var questionsData = data['Varikosis'] as Map;
+    //var questionsData = data[selectedCategory] as Map;
+    var questionsData = data['Varikosis'] as Map;git 
     var questionn = questionsData['Fragen'] as List;
     var answer = questionn[0] as Map;
     var ques = answer['Frage'] as String;
