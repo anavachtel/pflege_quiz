@@ -38,7 +38,7 @@ class QuestionListPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const Padding(
-                  padding: EdgeInsets.only(top: 10, bottom: 10),
+                  padding: EdgeInsets.only(top: 20, bottom: 20),
                   child: Text('Select a Question',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.black)),
