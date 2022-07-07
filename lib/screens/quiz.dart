@@ -68,6 +68,7 @@ class Quiz extends StatefulWidget {
   Widget build(BuildContext context) {
     QuestionService qService = Provider.of<QuestionService>(context, listen: false);
     questions = qService.getQuestions();
+    //shuffle
     print('Quiz');
     print(questions);
 

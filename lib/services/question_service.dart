@@ -34,7 +34,7 @@ class QuestionService {
     DocumentSnapshot snapshot = await questions.doc('Fragen').get();
     var data = snapshot.data() as Map;
     //var questionsData = data[selectedCategory] as Map;
-    var questionsData = data['Varikosis'] as Map;git 
+    var questionsData = data['Varikosis'] as Map;
     var questionn = questionsData['Fragen'] as List;
     var answer = questionn[0] as Map;
     var ques = answer['Frage'] as String;

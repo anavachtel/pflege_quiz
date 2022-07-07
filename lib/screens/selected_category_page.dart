@@ -54,7 +54,7 @@ class SelectedCategoryPage extends StatelessWidget {
                   onPressed: () {
                     // Respond to button press
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Fragen()));
+                        MaterialPageRoute(builder: (context) => QuestionListPage()));
                   },
                   child: Text(
                     'Fragen',
@@ -79,7 +79,7 @@ class SelectedCategoryPage extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => QuestionListPage()));
+                            builder: (context) => Quiz()));
                   },
                   child: Text(
                     'Quiz',
