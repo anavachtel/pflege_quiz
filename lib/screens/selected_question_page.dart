@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/helpers/appcolors.dart';
 import 'package:meals_app/models/Question.dart';
 import 'package:meals_app/screens/quiz.dart';
+import 'package:meals_app/widgets/answer.dart';
 
+import '../models/answers.dart';
 import '../models/category.dart';
+import '../widgets/question_card.dart';
 import 'fragen.dart';
 
 class SelectedQuestionPage extends StatelessWidget {
@@ -46,6 +49,23 @@ class SelectedQuestionPage extends StatelessWidget {
                   ),
                 ),
               ),
+              Answer(
+                  answerText: selectedQuestion.answers.toString(),
+                  answerColor: Colors.blue,
+                  answerTap: () {
+                    // if answer was already selected then nothing happens onTap
+                  })
+              /*
+              ListView.builder(
+                  itemCount: selectedQuestion.answers?.length,
+                  itemBuilder: (ctx, index) => Column(children: [
+                        ListTile(
+                          title: Text(selectedQuestion.answers![index]['answer']
+                              as String),
+                        )
+                      ]))
+
+                      */
             ]))));
   }
 }
