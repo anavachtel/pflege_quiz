@@ -49,12 +49,21 @@ class SelectedQuestionPage extends StatelessWidget {
                   ),
                 ),
               ),
-              Answer(
+                      ...(selectedQuestion.answers
+                      as List<dynamic>)
+                          .map(
+                            (answer) => Answer(
+                          answerText: answer['antwort'].toString(),
+                          answerColor: Colors.blue,
+                          answerTap: () {},
+                        ),
+                      ),
+                      /* Answer(
                   answerText: selectedQuestion.answers.toString(),
                   answerColor: Colors.blue,
                   answerTap: () {
                     // if answer was already selected then nothing happens onTap
-                  })
+                  })*/
               /*
               ListView.builder(
                   itemCount: selectedQuestion.answers?.length,
