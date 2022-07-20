@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import '../helpers/utils.dart';
 import '../models/category.dart';
+import '../services/category_selection_service.dart';
 import '../widgets/category_card.dart';
 
 class CategoryListPage extends StatelessWidget {
@@ -17,6 +18,7 @@ class CategoryListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CategoryService catService = Provider.of<CategoryService>(context, listen: false);
+    CategorySelectionService catSelection = Provider.of<CategorySelectionService>(context, listen: false);
     categories = catService.getCategories();
     /*Stream<List<Category>> getCategory() =>
         FirebaseFirestore.instance
@@ -50,9 +52,10 @@ class CategoryListPage extends StatelessWidget {
                     return CategoryCard(
                         category: categories[index],
                         onCardClick: () {
+                          catSelection.selectedCategory = categories[index];
                           Navigator.push(context, MaterialPageRoute(builder: (
                               context) =>
-                              SelectedCategoryPage(selectedCategory: catService.getCategories()[index],)));
+                              SelectedCategoryPage()));
                         }
                     );
                   },

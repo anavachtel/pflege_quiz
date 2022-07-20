@@ -6,10 +6,11 @@ import 'answers.dart';
 
 class Question {
   String? question;
-
+ // List<Answers>? answers;
   List<dynamic>? answers;
 
   Question({required this.question, required this.answers});
+
 
 /*
 
@@ -50,13 +51,24 @@ class Question {
 
   factory Question.fromJson(Map<String, dynamic> json) {
     print('json');
-    print(json['Frage'].toString());
-    print((json['Antwort']));
+    print(json['question'].toString());
+    print((json['answers']));
 
     return Question(
-        question: json['Frage'].toString().replaceAll("\\n", "\n"),
-        answers: json['Antwort']);
+        question: json['question'],
+        answers: json['answers']);
     //Answers.fromJson(json['answers']));
+  }
+
+  static List <Question> fromJsonArray(List<dynamic> jsonArray) {
+    List<Question> questionsFromJson = [];
+    
+    jsonArray.forEach((jsonData) {
+      print(jsonData);
+      questionsFromJson.add(Question.fromJson(jsonData));
+    });
+
+    return questionsFromJson;
   }
 
 //  String toJson() => json.encode(toMap());

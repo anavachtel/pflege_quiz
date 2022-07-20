@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/services/question_service.dart';
 import 'package:provider/provider.dart';
 
 import '../models/Question.dart';
 import '../models/answers.dart';
+import '../models/category.dart';
+import '../services/category_selection_service.dart';
 import '../widgets/answer.dart';
 
 class Quiz extends StatefulWidget {
+
 
   @override
   _QuizState createState() => _QuizState();
 
 }
   class _QuizState extends State<Quiz> {
-  List<Question> questions = const [];
-  List<Answers> answers = [];
+  List<Question> questions = [];
+
   List<Icon> _scoreTracker = [];
   int _questionIndex = 0;
   int _totalScore = 0;
@@ -23,6 +25,8 @@ class Quiz extends StatefulWidget {
   bool correctAnswerSelected = false;
   String answer = '';
   bool value = false;
+  Category? selectedCategory;
+
 
 
 
@@ -57,6 +61,7 @@ class Quiz extends StatefulWidget {
 
   void _resetQuiz() {
   setState(() {
+    questions.shuffle();
   _questionIndex = 0;
   _totalScore = 0;
   _scoreTracker = [];
@@ -66,12 +71,19 @@ class Quiz extends StatefulWidget {
 
   @override
   Widget build(BuildContext context) {
-    QuestionService qService = Provider.of<QuestionService>(context, listen: false);
-    questions = qService.getQuestions();
+  //  QuestionService qService = Provider.of<QuestionService>(context, listen: false);
+  //  questions = qService.getQuestions();
     //shuffle
+    CategorySelectionService catSelection = Provider.of<CategorySelectionService>(context, listen: false);
+    selectedCategory = catSelection.selectedCategory;
     print('Quiz');
-    print(questions);
+    questions = selectedCategory!.questions;
 
+    print(questions);
+    print('questionss');
+
+
+    print(questions);
 
 
 
@@ -125,7 +137,7 @@ class Quiz extends StatefulWidget {
     as List<dynamic>)
         .map(
           (answer) => Answer(
-        answerText: answer['antwort'].toString(),
+        answerText: answer['answer'].toString(),
         answerColor: answerWasSelected
             ? answer['value'] as bool
             ? Colors.green
@@ -216,7 +228,9 @@ class Quiz extends StatefulWidget {
   ),
   ),
   if (endOfQuiz)
+
   Container(
+
   height: 100,
   width: double.infinity,
   color: const Color(0xffbdaf6f7),

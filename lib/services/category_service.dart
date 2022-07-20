@@ -23,11 +23,13 @@ class CategoryService {
 
     DocumentSnapshot snapshot = await categories.doc('categories').get();
     var data = snapshot.data() as Map;
-    var categoriesData = data['categories'] as Map<String, dynamic>;
+    var categoriesData = data['categories'] as List<dynamic>;
+
+
     var categoryLimit = 3;
 
     //iteriert durch Kategorien und befüllt Liste
-    categoriesData.forEach((key, catData) {
+    categoriesData.forEach((catData) {
       Category cat = Category.fromJson(catData);
 
       _categories.add(cat);

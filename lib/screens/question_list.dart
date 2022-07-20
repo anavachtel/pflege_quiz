@@ -9,18 +9,23 @@ import 'package:provider/provider.dart';
 
 import '../helpers/utils.dart';
 import '../models/category.dart';
-import '../services/question_service.dart';
+import '../services/category_selection_service.dart';
 import '../widgets/category_card.dart';
 import '../widgets/question_card.dart';
 
 class QuestionListPage extends StatelessWidget {
-  List<Question> questions = [];
+
+
+  Category? selectedCategory;
 
   @override
   Widget build(BuildContext context) {
-    QuestionService catService =
-        Provider.of<QuestionService>(context, listen: false);
-    questions = catService.getQuestions();
+    CategorySelectionService catSelection = Provider.of<CategorySelectionService>(context, listen: false);
+    selectedCategory = catSelection.selectedCategory;
+
+  /*  QuestionService catService =
+    Provider.of<QuestionService>(context, listen: false);
+    questions = catService.getQuestions();*/
     /*Stream<List<Category>> getCategory() =>
         FirebaseFirestore.instance
             .collection('pflegequiz')
@@ -45,21 +50,21 @@ class QuestionListPage extends StatelessWidget {
                 ),
                 Expanded(
                     child: ListView.builder(
-                  itemCount: questions.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return QuestionCard(
-                        question: questions[index],
-                        onCardClick: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SelectedQuestionPage(
-                                        selectedQuestion:
-                                            catService.getQuestions()[index],
+                      itemCount: selectedCategory!.questions!.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return QuestionCard(
+                            question: selectedCategory!.questions![index],
+                            onCardClick: () {
+                              catSelection.selectedQuestion = selectedCategory!.questions![index];
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SelectedQuestionPage(
+
                                       )));
-                        });
-                  },
-                ))
+                            });
+                      },
+                    ))
               ],
             ),
           ],

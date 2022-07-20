@@ -39,22 +39,22 @@ class Answers {
   }
   factory Answers.fromJson(Map<String, dynamic> json) {
     print('this');
-    print(json['antwort'] as String);
+    print(json['answer'] as String);
     print(json['value'] as bool);
     return Answers(
-        answer: json['antwort'] as String,
+        answer: json['answer'] as String,
         value: json['value'] as bool);
 
   }
   // String toJson() => json.encode(toMap());
 
   getAnswers(json) {
-    answer = json['antwort'] as String;
+    answer = json['answer'] as String;
     value = json['value'] as bool;
 
   //answer.forEach((k, v) => print("Key : $k, Value : $v"));
 }
-  static List <Answers> fromJsonArray(jsonArray) {
+  static List <Answers> fromJsonArray(List<dynamic> jsonArray) {
     List <Answers> answersFromJson = [];
     print('list created');
     jsonArray.forEach((jsonData) {

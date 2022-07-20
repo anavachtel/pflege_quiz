@@ -3,18 +3,22 @@ import 'package:meals_app/helpers/appcolors.dart';
 import 'package:meals_app/models/Question.dart';
 import 'package:meals_app/screens/quiz.dart';
 import 'package:meals_app/widgets/answer.dart';
+import 'package:provider/provider.dart';
 
 import '../models/answers.dart';
 import '../models/category.dart';
+import '../services/category_selection_service.dart';
 import '../widgets/question_card.dart';
-import 'fragen.dart';
 
 class SelectedQuestionPage extends StatelessWidget {
-  Question selectedQuestion;
+  Question? selectedQuestion;
+  Color? color;
 
-  SelectedQuestionPage({required this.selectedQuestion});
+  //SelectedQuestionPage({required this.selectedQuestion});
   @override
   Widget build(BuildContext context) {
+    CategorySelectionService catSelection = Provider.of<CategorySelectionService>(context, listen: false);
+    selectedQuestion = catSelection.selectedQuestion!;
     return Scaffold(
         appBar: AppBar(
           title: Text('Frage', style: TextStyle(color: Colors.white)),
@@ -41,7 +45,7 @@ class SelectedQuestionPage extends StatelessWidget {
                 child: Center(
                   child: Text(
                     textAlign: TextAlign.center,
-                    selectedQuestion.question.toString(),
+                    selectedQuestion!.question!.toString(),
                     style: const TextStyle(
                         color: Colors.black,
                         fontSize: 20.0,
@@ -49,12 +53,15 @@ class SelectedQuestionPage extends StatelessWidget {
                   ),
                 ),
               ),
-                      ...(selectedQuestion.answers
+
+                      ...(selectedQuestion!.answers!
                       as List<dynamic>)
                           .map(
                             (answer) => Answer(
-                          answerText: answer['antwort'].toString(),
-                          answerColor: Colors.blue,
+                          answerText: answer['answer'].toString(),
+                          answerColor:
+                              answer['value'] == true ? Colors.green : Colors.red,
+
                           answerTap: () {},
                         ),
                       ),
