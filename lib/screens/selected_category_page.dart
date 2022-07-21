@@ -30,8 +30,20 @@ selectedCategory = catSelection.selectedCategory!;
           title: Text(selectedCategory!.name),
         ),
         body: Container(
-            child: Center(
+          color: Colors.black,
+          child: Stack(
+              children: [
+          Positioned.fill(
+          child: Opacity(
+          opacity: 0.3,
+              child: Image.asset('assets/imgs/pexels-sharon-mccutcheon-1148399.jpg',
+                  fit: BoxFit.cover)
+          ),
+
+        ),
+        Center(
                 child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Padding(
@@ -104,6 +116,11 @@ selectedCategory = catSelection.selectedCategory!;
                   )),
             ),
           ],
-        ))));
+        )
+        )
+        ]
+    )
+    )
+    );
   }
 }

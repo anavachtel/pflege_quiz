@@ -28,12 +28,7 @@ class CategoryListPage extends StatelessWidget {
             snapshot.docs.map((doc) => Category.fromJson(doc.data())).toList()
    */
     return Scaffold(
-        drawer: Drawer(),
-        appBar: AppBar(
-          title:
-          Text('Categories'
-          ),
-        ),
+
         body:
         Stack(
           children: [

@@ -26,6 +26,8 @@ class Quiz extends StatefulWidget {
   String answer = '';
   bool value = false;
   Category? selectedCategory;
+  int questionnumber = 0;
+
 
 
 
@@ -74,6 +76,7 @@ class Quiz extends StatefulWidget {
   //  QuestionService qService = Provider.of<QuestionService>(context, listen: false);
   //  questions = qService.getQuestions();
     //shuffle
+    questionnumber = _questionIndex + 1;
     CategorySelectionService catSelection = Provider.of<CategorySelectionService>(context, listen: false);
     selectedCategory = catSelection.selectedCategory;
     print('Quiz');
@@ -205,7 +208,7 @@ class Quiz extends StatefulWidget {
   Container(
   padding: const EdgeInsets.all(20.0),
   child: Text(
-  '${_totalScore.toString()}/${questions.length}',
+  '${questionnumber.toString()}/${questions.length}',
   style: const TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
   ),
   ),

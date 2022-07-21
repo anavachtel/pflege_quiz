@@ -12,6 +12,7 @@ import '../models/category.dart';
 import '../services/category_selection_service.dart';
 import '../widgets/category_card.dart';
 import '../widgets/question_card.dart';
+import 'bottom_nav_bar.dart';
 
 class QuestionListPage extends StatelessWidget {
 
@@ -37,6 +38,7 @@ class QuestionListPage extends StatelessWidget {
         appBar: AppBar(
           title: Text('Questions'),
         ),
+
         body: Stack(
           children: [
             Column(

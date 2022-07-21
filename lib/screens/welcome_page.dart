@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 
 import '../helpers/appcolors.dart';
+import 'bottom_nav_bar.dart';
 import 'categories_list.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class WelcomePage extends StatelessWidget {
@@ -45,7 +46,7 @@ class WelcomePage extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 50),
-                          Text('Welcome',
+                          Text('Willkommen',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: Colors.white,
@@ -53,7 +54,7 @@ class WelcomePage extends StatelessWidget {
                                 fontWeight: FontWeight.bold
                             ),),
                           SizedBox(height:30),
-                          Text('MyApp to learn some stuff',
+                          Text('Die App für Azubis in der Pflege.',
                               textAlign: TextAlign.center
                               ,
                               style: TextStyle(
@@ -67,7 +68,7 @@ class WelcomePage extends StatelessWidget {
                               onPressed: () {
                                 Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => CategoryListPage())
+                                    MaterialPageRoute(builder: (context) => BottomNavBar())
                                 );
                               },
                               shape: RoundedRectangleBorder(
@@ -75,7 +76,7 @@ class WelcomePage extends StatelessWidget {
                               ),
                               color: AppColors.MAIN_COLOR,
                               padding: EdgeInsets.all(25),
-                              child: const Text('Button',
+                              child: const Text('Login',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 16,
@@ -101,7 +102,7 @@ class WelcomePage extends StatelessWidget {
                                         if (success) {
                                           Navigator.push(
                                               context,
-                                              MaterialPageRoute(builder: (context) => CategoryListPage())
+                                              MaterialPageRoute(builder: (context) => BottomNavBar())
                                           );
                                         }
                                       },
@@ -115,7 +116,7 @@ class WelcomePage extends StatelessWidget {
                                                 width: 4
                                             )
                                         ),
-                                        child: const Text('Login',
+                                        child: const Text('Registrieren',
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                                 fontSize: 16,
