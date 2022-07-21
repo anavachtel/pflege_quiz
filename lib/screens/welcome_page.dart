@@ -96,14 +96,14 @@ class WelcomePage extends StatelessWidget {
                                       splashColor: AppColors.MAIN_COLOR.withOpacity(0.2),
                                       highlightColor: AppColors.MAIN_COLOR.withOpacity(0.2),
                                       onTap: () async {
-                                       bool success = await loginService.signInWithGoogle();
+                                        bool success = await loginService.signInWithGoogle();
 
-                                       if (success) {
-                                         Navigator.push(
-                                             context,
-                                             MaterialPageRoute(builder: (context) => CategoryListPage())
-                                         );
-                                       }
+                                        if (success) {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(builder: (context) => CategoryListPage())
+                                          );
+                                        }
                                       },
                                       child: Container(
                                         padding: const EdgeInsets.all(20),

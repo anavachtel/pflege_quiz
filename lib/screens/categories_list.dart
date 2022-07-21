@@ -42,7 +42,7 @@ class CategoryListPage extends StatelessWidget {
               children: [
                 const Padding(
                   padding: EdgeInsets.only(top: 10, bottom: 10),
-                  child: Text('Select a category',
+                  child: Text('Kategorie auswählen',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.black)),
                 ),
@@ -73,5 +73,5 @@ class CategoryListPage extends StatelessWidget {
 
 
   }
-  
+
 }

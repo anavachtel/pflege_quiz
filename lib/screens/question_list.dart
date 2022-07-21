@@ -44,7 +44,7 @@ class QuestionListPage extends StatelessWidget {
               children: [
                 const Padding(
                   padding: EdgeInsets.only(top: 20, bottom: 20),
-                  child: Text('Select a Question',
+                  child: Text('Frage auswählen',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.black)),
                 ),
