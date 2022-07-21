@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/screens/categories_list.dart';
 import 'package:meals_app/screens/profile.dart';
 
+import '../helpers/appcolors.dart';
+
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({Key? key}) : super(key: key);
 
@@ -28,13 +30,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
       ),
           automaticallyImplyLeading: false,
+        backgroundColor: AppColors.MAIN_COLOR,
       ),
       body: _pages[_selectedPageIndex]['page'] as Widget,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
-        backgroundColor: Theme.of(context).primaryColor,
-        unselectedItemColor: Colors.lightBlueAccent,
-        selectedItemColor: Colors.white,
+        backgroundColor: AppColors.MAIN_COLOR,
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.blue,
         currentIndex: _selectedPageIndex,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.category),

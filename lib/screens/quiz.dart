@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../helpers/appcolors.dart';
 import '../models/Question.dart';
 import '../models/answers.dart';
 import '../models/category.dart';
@@ -94,6 +95,7 @@ class Quiz extends StatefulWidget {
 
   return Scaffold(
   appBar: AppBar(
+    backgroundColor: AppColors.MAIN_COLOR,
   title: const Text(
   'Quiz',
   style: TextStyle(color: Colors.white),
@@ -180,7 +182,9 @@ class Quiz extends StatefulWidget {
   const SizedBox(height: 20.0),
   ElevatedButton(
 
+
   style: ButtonStyle(
+    backgroundColor: MaterialStateProperty.all(AppColors.MAIN_COLOR),
   padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 120, vertical: 20)),
   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
   RoundedRectangleBorder(

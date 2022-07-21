@@ -28,6 +28,7 @@ selectedCategory = catSelection.selectedCategory!;
     return Scaffold(
         appBar: AppBar(
           title: Text(selectedCategory!.name),
+          backgroundColor: AppColors.MAIN_COLOR,
         ),
         body: Container(
           color: Colors.black,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../helpers/appcolors.dart';
 import '../models/Question.dart';
 import '../models/Question.dart';
 import '../models/category.dart';
@@ -26,7 +27,7 @@ class QuestionCard extends StatelessWidget {
             gradient: LinearGradient(
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
-                colors: [Colors.lightBlue.withOpacity(0.9), Colors.blue])),
+                colors: [Colors.lightBlue.withOpacity(0.9), AppColors.MAIN_COLOR,])),
         child: Center(
             child: Text(
           this.question.question.toString(),

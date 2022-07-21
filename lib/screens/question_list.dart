@@ -7,6 +7,7 @@ import 'package:meals_app/screens/selected_question_page.dart';
 import 'package:meals_app/services/category_service.dart';
 import 'package:provider/provider.dart';
 
+import '../helpers/appcolors.dart';
 import '../helpers/utils.dart';
 import '../models/category.dart';
 import '../services/category_selection_service.dart';
@@ -37,6 +38,8 @@ class QuestionListPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text('Questions'),
+          backgroundColor: AppColors.MAIN_COLOR,
+
         ),
 
         body: Stack(

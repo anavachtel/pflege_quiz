@@ -22,6 +22,7 @@ class SelectedQuestionPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text('Frage', style: TextStyle(color: Colors.white)),
+          backgroundColor: AppColors.MAIN_COLOR,
         ),
         body: Container(
             child: Center(

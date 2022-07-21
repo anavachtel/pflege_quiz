@@ -7,6 +7,7 @@ import 'package:meals_app/services/category_service.dart';
 import 'package:meals_app/services/login_service.dart';
 import 'package:provider/provider.dart';
 
+import 'helpers/appcolors.dart';
 import 'models/category.dart';
 
 
@@ -28,8 +29,10 @@ void main(){
         ],
         child:
       MaterialApp(
-    theme: ThemeData(fontFamily: 'Raleway'),
+    theme: ThemeData(fontFamily: 'Raleway',
+    primaryColor: AppColors.MAIN_COLOR),
     debugShowCheckedModeBanner: false,
+
     home: SplashPage(duration: 3, goToPage: WelcomePage(),)
   ))
   );
