@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meals_app/screens/welcome_page.dart';
+import 'package:meals_app/services/database.dart';
 import '../models/loginuser.dart';
 import '../models/FirebaseUser.dart';
 import '../screens/register.dart';
@@ -46,7 +47,11 @@ class AuthService {
           .createUserWithEmailAndPassword(
               email: _login.email.toString(),
               password: _login.password.toString());
+
       User? user = userCredential.user;
+
+      // await DatabaseService(uid: user.uid).updateUserData("Tom");
+
       return _firebaseUser(user);
     } on FirebaseAuthException catch (e) {
       return FirebaseUser(code: e.code, uid: null);
@@ -62,4 +67,11 @@ class AuthService {
       return null;
     }
   }
+
+/*
+  Future<bool> isUserLoggedIn() async {
+    var user = await _auth.currentUser();
+    return user != null;
+
+    */
 }

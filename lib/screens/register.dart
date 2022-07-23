@@ -1,3 +1,5 @@
+import 'package:auth/auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:meals_app/screens/login.dart';
 
@@ -18,17 +20,37 @@ class _Register extends State<Register> {
   final AuthService _auth = AuthService();
 
   bool _obscureText = true;
+  final _name = TextEditingController();
   final _email = TextEditingController();
   final _password = TextEditingController();
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    final nameField = TextFormField(
+        controller: _name,
+        autofocus: false,
+        validator: (value) {
+          if (value != null) {
+            if (value.contains('@')) {
+              return null;
+            }
+            return 'Enter a Valid Name';
+          }
+        },
+        decoration: InputDecoration(
+            contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+            hintText: "Profilename",
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))));
+
     final emailField = TextFormField(
         controller: _email,
         autofocus: false,
         validator: (value) {
           if (value != null) {
-            if (value.contains('@') && value.endsWith('.com')) {
+            if (value.contains('@') && value.endsWith('.com') ||
+                value.endsWith('.de')) {
               return null;
             }
             return 'Enter a Valid Email Address';
@@ -87,6 +109,18 @@ class _Register extends State<Register> {
           if (_formKey.currentState!.validate()) {
             dynamic result = await _auth.registerEmailPassword(
                 LoginUser(email: _email.text, password: _password.text));
+            User? user = FirebaseAuth.instance.currentUser;
+
+            await FirebaseFirestore.instance
+                .collection("users")
+                .doc(user?.uid)
+                .set({
+              'uid': user?.uid,
+              'email': _email.text,
+              'profilname': _name.text,
+              'created': DateTime.now()
+            });
+
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => Login()));
             if (result.uid == null) {
@@ -128,6 +162,8 @@ class _Register extends State<Register> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   const SizedBox(height: 45.0),
+                  nameField,
+                  const SizedBox(height: 25.0),
                   emailField,
                   const SizedBox(height: 25.0),
                   passwordField,

@@ -1,45 +1,49 @@
+import 'package:auth/auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:meals_app/screens/welcome_page.dart';
-import '../services/auth.dart';
+import 'package:meals_app/models/FirebaseUser.dart' as FbU;
+import 'package:meals_app/models/loginuser.dart';
+import 'package:meals_app/models/profileUser.dart';
+import 'package:meals_app/screens/login.dart';
+import 'package:meals_app/services/profile_service.dart';
+import 'package:provider/provider.dart';
 
-class Profile extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return _Profile();
-  }
-}
+class Profile extends StatelessWidget {
+  User? currentProfile = FirebaseAuth.instance.currentUser;
 
-class _Profile extends State<Profile> {
-  final AuthService _auth = new AuthService();
+  late String? email = currentProfile?.email.toString();
+
+  late String? uid = currentProfile?.uid.toString();
+
+  List<ProfileUser> profil = [];
 
   @override
   Widget build(BuildContext context) {
-    final SignOut = Material(
-      elevation: 5.0,
-      borderRadius: BorderRadius.circular(30.0),
-      color: Theme.of(context).primaryColor,
-      child: MaterialButton(
-        minWidth: MediaQuery.of(context).size.width,
-        padding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => WelcomePage()));
-          _auth.signOut();
-        },
-        child: Text(
-          "Log out",
-          style: TextStyle(color: Theme.of(context).primaryColorLight),
-          textAlign: TextAlign.center,
-        ),
-      ),
-    );
+    ProfileService profilService =
+        Provider.of<ProfileService>(context, listen: false);
+
+    profilService.getProfileFromCollectionFromFirebase();
+
+    profil = profilService.getProfile();
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login Demo App - HomePage'),
-        backgroundColor: Theme.of(context).primaryColor,
+        body: Center(
+            child: Column(children: [
+      Row(
+        children: [
+          Text('Profil'),
+          const SizedBox(
+            height: 25.0,
+          ),
+          Text(email.toString()),
+          Text(uid.toString()),
+          Text(profil.length.toString()),
+          Text(profil.toString()),
+        ],
       ),
-      body: Center(child: SignOut),
-    );
+      const SizedBox(
+        height: 25.0,
+      ),
+    ])));
   }
 }

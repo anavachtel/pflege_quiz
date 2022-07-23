@@ -7,6 +7,7 @@ import 'package:meals_app/screens/welcome_page.dart';
 import 'package:meals_app/services/category_selection_service.dart';
 import 'package:meals_app/services/category_service.dart';
 import 'package:meals_app/services/login_service.dart';
+import 'package:meals_app/services/profile_service.dart';
 import 'package:provider/provider.dart';
 
 import 'helpers/appcolors.dart';
@@ -20,6 +21,7 @@ Future<void> main() async {
       providers: [
         Provider(create: (_) => LoginService()),
         Provider(create: (_) => CategoryService()),
+        Provider(create: (_) => ProfileService()),
         ListenableProvider(create: (_) => CategorySelectionService())
         /*Provider(
         create: (_) => QuestionService()),

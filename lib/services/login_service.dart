@@ -1,4 +1,3 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -8,11 +7,9 @@ import 'package:meals_app/models/login_user_model.dart';
 import '../firebase_options.dart';
 
 class LoginService {
+  LoginService() {}
 
-  LoginService() {
-
-  }
-
+/*
   LoginUserModel _userModel = LoginUserModel(displayName: null, email: null, photoUrl: null);
 
   LoginUserModel get loggedInUserModel => _userModel;
@@ -48,4 +45,6 @@ class LoginService {
   void signOut() async {
     await GoogleSignIn().signOut();
   }
+}
+*/
 }
