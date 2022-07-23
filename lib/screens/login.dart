@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/screens/bottom_nav_bar.dart';
 import 'package:meals_app/screens/categories_list.dart';
 import 'package:meals_app/screens/register.dart';
+import 'package:provider/provider.dart';
 
 import '../models/loginuser.dart';
 import '../services/auth.dart';
+import '../services/profile_service.dart';
 
 class Login extends StatefulWidget {
   final Function? toggleView;
@@ -26,6 +28,9 @@ class _Login extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    ProfileService profilService =
+        Provider.of<ProfileService>(context, listen: false);
+
     final emailField = TextFormField(
         controller: _email,
         autofocus: false,
@@ -122,6 +127,7 @@ class _Login extends State<Login> {
             dynamic result = await _auth.signInEmailPassword(
                 LoginUser(email: _email.text, password: _password.text));
             if (result.uid != null) {
+              profilService.getProfileFromCollectionFromFirebase();
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => BottomNavBar()));
             }

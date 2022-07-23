@@ -22,28 +22,29 @@ class Profile extends StatelessWidget {
     ProfileService profilService =
         Provider.of<ProfileService>(context, listen: false);
 
-    profilService.getProfileFromCollectionFromFirebase();
-
     profil = profilService.getProfile();
 
     return Scaffold(
         body: Center(
-            child: Column(children: [
-      Row(
+      child: Column(
         children: [
-          Text('Profil'),
-          const SizedBox(
-            height: 25.0,
-          ),
-          Text(email.toString()),
-          Text(uid.toString()),
-          Text(profil.length.toString()),
-          Text(profil.toString()),
+          Row(children: [
+            Text('Profil'),
+            const SizedBox(
+              height: 25.0,
+            ),
+            Text(email.toString()),
+            Text(profil.toString()),
+            /*Expanded(
+              child: ListView.builder(
+            itemCount: profil.length,
+            itemBuilder: (BuildContext context, int index) {
+              Text(profil.toString());
+            },
+            */
+          ])
         ],
       ),
-      const SizedBox(
-        height: 25.0,
-      ),
-    ])));
+    ));
   }
 }

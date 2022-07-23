@@ -33,51 +33,22 @@ class ProfileService {
 
     final userDoc = await profile.doc(uid).get();
 
-    DocumentSnapshot snapshot =
-        await profile.doc('bnEZ6WUtdHVOaRcIyRJjNNhEUqJ2').get();
+    DocumentSnapshot snapshot = await profile.doc(uid).get();
+
+    // 11wnGb4Mg9SZs7nhVKUnxbWtBht1
+
     var data = snapshot.data() as Map;
-    var emailData = data['email'];
-    var profilnameData = data['profilname'];
-    var createdData = data['created'];
-    var uidData = data['uid'];
+    var profilesData = data[uid] as List<dynamic>;
 
     //iteriert durch Kategorien und befüllt Liste
-    createdData.forEach((data) {
-      ProfileUser profile = ProfileUser.fromJson(data);
+    profilesData.forEach((catData) {
+      ProfileUser profil = ProfileUser.fromJson(catData);
 
-      _profiles.add(emailData);
-      _profiles.add(profilnameData);
-      _profiles.add(createdData);
-      _profiles.add(uidData);
+      _profiles.add(profil);
 
       print(_profiles);
+
       //_categories.clear();
     });
   }
 }
-
-/*
-    final userDoc = await profile.doc('$uid').get();
-    // var data = snapshot.data() as Map;
-    var userEmail = userDoc.get('email');
-    var userCreated = userDoc.get('created');
-  
-*/
-   
-
-   /* var profilesData = data as List<dynamic>;
-    var profileEmail = data['email'] as List<dynamic>;
-
-    profilesData.forEach((profData) {
-      ProfileUser prof = ProfileUser.fromJson(profData);
-
-      //if (prof.uid == uid) {
-      _profiles.add(prof);
-      print(_profiles);
-      print("'" + uid! + "'");
-      //}
-    });
-  }
-}
-
-*/

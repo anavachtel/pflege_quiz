@@ -115,10 +115,13 @@ class _Register extends State<Register> {
                 .collection("users")
                 .doc(user?.uid)
                 .set({
-              'uid': user?.uid,
-              'email': _email.text,
-              'profilname': _name.text,
-              'created': DateTime.now()
+              user!.uid: [
+                {
+                  'email': _email.text,
+                  'profilname': _name.text,
+                  'created': DateTime.now().toString()
+                }
+              ]
             });
 
             Navigator.push(

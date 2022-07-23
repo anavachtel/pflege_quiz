@@ -7,6 +7,13 @@ class ProfileUser {
   final String? uid;
   final String? created;
 
+  @override
+  String toString() {
+    return '$email '
+        '$profilname'
+        '$created';
+  }
+
   ProfileUser(
       {required this.email,
       required this.profilname,
