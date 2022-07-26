@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:meals_app/screens/bottom_nav_bar.dart';
 import 'package:meals_app/screens/categories_list.dart';
@@ -107,11 +108,6 @@ class _Login extends State<Login> {
                 });
           }
         },
-        child: Text(
-          "Log in Anonymously",
-          style: TextStyle(color: Theme.of(context).primaryColorLight),
-          textAlign: TextAlign.center,
-        ),
       ),
     );
 
@@ -128,6 +124,8 @@ class _Login extends State<Login> {
                 LoginUser(email: _email.text, password: _password.text));
             if (result.uid != null) {
               profilService.getProfileFromCollectionFromFirebase();
+              profilService.getProfile();
+
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => BottomNavBar()));
             }
@@ -169,7 +167,6 @@ class _Login extends State<Login> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  loginAnonymousButon,
                   const SizedBox(height: 45.0),
                   emailField,
                   const SizedBox(height: 25.0),

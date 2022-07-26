@@ -30,14 +30,6 @@ class _Register extends State<Register> {
     final nameField = TextFormField(
         controller: _name,
         autofocus: false,
-        validator: (value) {
-          if (value != null) {
-            if (value.contains('@')) {
-              return null;
-            }
-            return 'Enter a Valid Name';
-          }
-        },
         decoration: InputDecoration(
             contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
             hintText: "Profilename",
