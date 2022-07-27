@@ -124,7 +124,7 @@ class Profile extends StatelessWidget {
                       ])),
               child: Center(
                   child: Text(
-                "Erstelldatum: " + profil.elementAt(0).created.toString(),
+                "Erstelldatum: ${profil.elementAt(0).created?.substring(0, 10)}",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 15,

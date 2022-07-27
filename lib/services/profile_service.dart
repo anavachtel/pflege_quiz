@@ -39,6 +39,11 @@ class ProfileService {
     profilesData.forEach((catData) {
       ProfileUser profil = ProfileUser.fromJson(catData);
 
+      // _profiles.add(profil);
+
+      if (_profiles.length > 1) {
+        _profiles.clear();
+      }
       _profiles.add(profil);
 
       print(_profiles);

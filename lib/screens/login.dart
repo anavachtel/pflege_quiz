@@ -41,7 +41,7 @@ class _Login extends State<Login> {
                 value.endsWith('.de')) {
               return null;
             }
-            return 'Enter a Valid Email Address';
+            return 'Geben Sie eine gültige E-Mail Adresse ein';
           }
         },
         decoration: InputDecoration(
@@ -56,17 +56,17 @@ class _Login extends State<Login> {
         autofocus: false,
         validator: (value) {
           if (value == null || value.trim().isEmpty) {
-            return 'This field is required';
+            return 'Dieses Feld ist erforderlich';
           }
           if (value.trim().length < 8) {
-            return 'Password must be at least 8 characters in length';
+            return 'Das Passwort muss mindestens 8 Zeichen lang sein.';
           }
           // Return null if the entered password is valid
           return null;
         },
         decoration: InputDecoration(
             contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-            hintText: "Password",
+            hintText: "Passwort",
             suffixIcon: IconButton(
               icon:
                   Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
@@ -85,7 +85,7 @@ class _Login extends State<Login> {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => Register()));
         },
-        child: const Text('New? Register here'));
+        child: const Text('Neu? Hier registrieren'));
 
     final loginAnonymousButon = Material(
       elevation: 5.0,
@@ -143,7 +143,7 @@ class _Login extends State<Login> {
           }
         },
         child: Text(
-          "Log in",
+          "Anmelden",
           style: TextStyle(color: Theme.of(context).primaryColorLight),
           textAlign: TextAlign.center,
         ),
@@ -153,7 +153,7 @@ class _Login extends State<Login> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Login Demo Page'),
+        title: const Text('Anmeldung'),
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Column(
