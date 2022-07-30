@@ -1,17 +1,8 @@
-
-import 'package:meals_app/models/Question.dart';
-
 class Answers {
+  String? answer;
+  bool? value;
 
-  String ?answer;
-  bool ?value;
-
-  Answers({
-    required this.answer,
-    required this.value
-  });
-
-
+  Answers({required this.answer, required this.value});
 
 /*   Answers.fromJson(Map json) {
      answer = json['answer'];
@@ -33,18 +24,16 @@ class Answers {
    */
   @override
   String toString() {
-
     return '$answer '
         '$value';
   }
+
   factory Answers.fromJson(Map<String, dynamic> json) {
     print('this');
     print(json['answer'] as String);
     print(json['value'] as bool);
     return Answers(
-        answer: json['answer'] as String,
-        value: json['value'] as bool);
-
+        answer: json['answer'] as String, value: json['value'] as bool);
   }
   // String toJson() => json.encode(toMap());
 
@@ -52,10 +41,11 @@ class Answers {
     answer = json['answer'] as String;
     value = json['value'] as bool;
 
-  //answer.forEach((k, v) => print("Key : $k, Value : $v"));
-}
-  static List <Answers> fromJsonArray(List<dynamic> jsonArray) {
-    List <Answers> answersFromJson = [];
+    //answer.forEach((k, v) => print("Key : $k, Value : $v"));
+  }
+
+  static List<Answers> fromJsonArray(List<dynamic> jsonArray) {
+    List<Answers> answersFromJson = [];
     print('list created');
     jsonArray.forEach((jsonData) {
       answersFromJson.add(Answers.fromJson(jsonData));
@@ -63,9 +53,5 @@ class Answers {
     print('answersFromJson');
     print(answersFromJson);
     return answersFromJson;
-
-
-
   }
-
 }
