@@ -16,16 +16,15 @@ import '../widgets/question_card.dart';
 import 'bottom_nav_bar.dart';
 
 class QuestionListPage extends StatelessWidget {
-
-
   Category? selectedCategory;
 
   @override
   Widget build(BuildContext context) {
-    CategorySelectionService catSelection = Provider.of<CategorySelectionService>(context, listen: false);
+    CategorySelectionService catSelection =
+        Provider.of<CategorySelectionService>(context, listen: false);
     selectedCategory = catSelection.selectedCategory;
 
-  /*  QuestionService catService =
+    /*  QuestionService catService =
     Provider.of<QuestionService>(context, listen: false);
     questions = catService.getQuestions();*/
     /*Stream<List<Category>> getCategory() =>
@@ -37,11 +36,15 @@ class QuestionListPage extends StatelessWidget {
    */
     return Scaffold(
         appBar: AppBar(
-          title: Text('Questions'),
+          title: Text(
+            'Fragen',
+            style: TextStyle(
+                color: Colors.white, fontSize: 15, fontWeight: FontWeight.w900),
+            textAlign: TextAlign.center,
+          ),
           backgroundColor: AppColors.MAIN_COLOR,
-
+          centerTitle: true,
         ),
-
         body: Stack(
           children: [
             Column(
@@ -55,21 +58,21 @@ class QuestionListPage extends StatelessWidget {
                 ),
                 Expanded(
                     child: ListView.builder(
-                      itemCount: selectedCategory!.questions!.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return QuestionCard(
-                            question: selectedCategory!.questions![index],
-                            onCardClick: () {
-                              catSelection.selectedQuestion = selectedCategory!.questions![index];
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => SelectedQuestionPage(
-
-                                      )));
-                            });
-                      },
-                    ))
+                  itemCount: selectedCategory!.questions!.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return QuestionCard(
+                        question: selectedCategory!.questions![index],
+                        onCardClick: () {
+                          catSelection.selectedQuestion =
+                              selectedCategory!.questions![index];
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      SelectedQuestionPage()));
+                        });
+                  },
+                ))
               ],
             ),
           ],

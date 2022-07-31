@@ -8,6 +8,7 @@ import 'package:meals_app/screens/login.dart';
 import 'package:meals_app/screens/welcome_page.dart';
 import 'package:meals_app/services/profile_service.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../helpers/appcolors.dart';
 import '../services/auth.dart';
@@ -21,6 +22,9 @@ class Profile extends StatelessWidget {
 
   late String? uid = currentProfile?.uid.toString();
 
+  final Uri _url =
+      Uri.parse('https://digitale-akademie-pflege.de/login/index.php?');
+
   List<ProfileUser> profil = [];
 
   @override
@@ -31,107 +35,128 @@ class Profile extends StatelessWidget {
     profil = profilService.getProfile();
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Dein Profil"),
-          actions: [
-            IconButton(
-                icon: Icon(Icons.follow_the_signs_outlined),
-                onPressed: () async {
-                  profilService.signOut();
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => WelcomePage()));
-                  //code to execute when this button is pressed
-                })
-          ],
-          backgroundColor: AppColors.MAIN_COLOR,
+        body: Container(
+            child: Stack(children: [
+      Positioned.fill(
+        child: Opacity(
+            opacity: 0.6,
+            child: Image.asset(
+                'assets/imgs/pexels-sharon-mccutcheon-1148399.jpg',
+                fit: BoxFit.cover)),
+      ),
+      Column(children: [
+        const SizedBox(
+          height: 45.0,
         ),
-        body: Center(
-            child: Column(children: [
-          const SizedBox(
-            height: 45.0,
-          ),
-          Container(
-              margin:
-                  const EdgeInsets.only(bottom: 30.0, left: 30.0, right: 30.0),
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
-              height: 80,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  gradient: LinearGradient(
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
-                      colors: [
-                        Colors.lightBlue.withOpacity(0.9),
-                        AppColors.MAIN_COLOR,
-                      ])),
-              child: Center(
-                  child: Text(
-                "Profilname: " + profil.elementAt(0).profilname.toString(),
+        Container(
+            margin:
+                const EdgeInsets.only(bottom: 30.0, left: 30.0, right: 30.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+            width: double.infinity,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                gradient: LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                    colors: [
+                      Colors.lightBlue.withOpacity(0.9),
+                      AppColors.MAIN_COLOR,
+                    ])),
+            child: Center(
+                child: Text(
+              "Profilname: " + profil.elementAt(0).profilname.toString(),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25,
+                  fontWeight: FontWeight.w900),
+              textAlign: TextAlign.center,
+            ))),
+        const SizedBox(
+          height: 25.0,
+        ),
+        Container(
+            margin:
+                const EdgeInsets.only(bottom: 30.0, left: 30.0, right: 30.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+            width: double.infinity,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                gradient: LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                    colors: [
+                      Colors.lightBlue.withOpacity(0.9),
+                      AppColors.MAIN_COLOR,
+                    ])),
+            child: Center(
+                child: Text(
+              "Emailadresse: " + profil.elementAt(0).email.toString(),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25,
+                  fontWeight: FontWeight.w900),
+              textAlign: TextAlign.center,
+            ))),
+        const SizedBox(
+          height: 25.0,
+        ),
+        Container(
+            margin:
+                const EdgeInsets.only(bottom: 30.0, left: 30.0, right: 30.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+            width: double.infinity,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                gradient: LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                    colors: [
+                      Colors.lightBlue.withOpacity(0.9),
+                      AppColors.MAIN_COLOR,
+                    ])),
+            child: Center(
+                child: Text(
+              "Erstelldatum: ${profil.elementAt(0).created?.substring(0, 10)}",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25,
+                  fontWeight: FontWeight.w900),
+              textAlign: TextAlign.center,
+            ))),
+        const SizedBox(
+          height: 25.0,
+        ),
+        Container(
+            margin:
+                const EdgeInsets.only(bottom: 30.0, left: 30.0, right: 30.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+            width: double.infinity,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                gradient: LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                    colors: [
+                      Colors.lightGreen.withOpacity(0.9),
+                      AppColors.MAIN_COLOR,
+                    ])),
+            child: GestureDetector(
+              child: Text(
+                "Moodle öffnen",
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w300),
-                textAlign: TextAlign.center,
-              ))),
-          const SizedBox(
-            height: 25.0,
-          ),
-          Container(
-              margin:
-                  const EdgeInsets.only(bottom: 30.0, left: 30.0, right: 30.0),
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
-              height: 80,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  gradient: LinearGradient(
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
-                      colors: [
-                        Colors.lightBlue.withOpacity(0.9),
-                        AppColors.MAIN_COLOR,
-                      ])),
-              child: Center(
-                  child: Text(
-                "Emailadresse: " + profil.elementAt(0).email.toString(),
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600),
-                textAlign: TextAlign.center,
-              ))),
-          const SizedBox(
-            height: 25.0,
-          ),
-          Container(
-              margin:
-                  const EdgeInsets.only(bottom: 30.0, left: 30.0, right: 30.0),
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
-              height: 80,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  gradient: LinearGradient(
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
-                      colors: [
-                        Colors.lightBlue.withOpacity(0.9),
-                        AppColors.MAIN_COLOR,
-                      ])),
-              child: Center(
-                  child: Text(
-                "Erstelldatum: ${profil.elementAt(0).created?.substring(0, 10)}",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
+                    fontSize: 25,
                     fontWeight: FontWeight.w900),
                 textAlign: TextAlign.center,
-              )))
-        ])));
+              ),
+              onTap: _launchUrl,
+            ))
+      ])
+    ])));
 
 /*
 
@@ -158,7 +183,12 @@ class Profile extends StatelessWidget {
       ),
     ));
 
+*/
+  }
 
-    */
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(_url)) {
+      throw 'Could not launch $_url';
+    }
   }
 }

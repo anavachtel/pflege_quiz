@@ -93,7 +93,8 @@ class _Register extends State<Register> {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => Login()));
         },
-        child: const Text('Zum Login gehen'));
+        child: const Text('Zum Login gehen',
+            style: TextStyle(fontWeight: FontWeight.w900)));
 
     final registerButton = Material(
       elevation: 5.0,
@@ -140,7 +141,8 @@ class _Register extends State<Register> {
         },
         child: Text(
           "Registrieren",
-          style: TextStyle(color: Theme.of(context).primaryColorLight),
+          style: TextStyle(
+              color: Colors.white, fontSize: 20, fontWeight: FontWeight.w900),
           textAlign: TextAlign.center,
         ),
       ),
@@ -149,7 +151,12 @@ class _Register extends State<Register> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Registrieren'),
+        title: const Text(
+          'Registrieren',
+          style: TextStyle(
+              color: Colors.white, fontSize: 30, fontWeight: FontWeight.w900),
+          textAlign: TextAlign.center,
+        ),
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Column(

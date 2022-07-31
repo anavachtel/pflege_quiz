@@ -25,7 +25,12 @@ class SelectedCategoryPage extends StatelessWidget {
     // qService.getQuestionsFromCollectionFromFirebase(selectedCategory);
     return Scaffold(
         appBar: AppBar(
-          title: Text(selectedCategory!.name),
+          title: Text(
+            selectedCategory!.name,
+            style: TextStyle(
+                color: Colors.white, fontSize: 30, fontWeight: FontWeight.w900),
+            textAlign: TextAlign.center,
+          ),
           backgroundColor: AppColors.MAIN_COLOR,
         ),
         body: Container(

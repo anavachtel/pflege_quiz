@@ -17,11 +17,17 @@ class SelectedQuestionPage extends StatelessWidget {
   //SelectedQuestionPage({required this.selectedQuestion});
   @override
   Widget build(BuildContext context) {
-    CategorySelectionService catSelection = Provider.of<CategorySelectionService>(context, listen: false);
+    CategorySelectionService catSelection =
+        Provider.of<CategorySelectionService>(context, listen: false);
     selectedQuestion = catSelection.selectedQuestion!;
     return Scaffold(
         appBar: AppBar(
-          title: Text('Frage', style: TextStyle(color: Colors.white)),
+          title: Text(
+            'Frage',
+            style: TextStyle(
+                color: Colors.white, fontSize: 30, fontWeight: FontWeight.w900),
+            textAlign: TextAlign.center,
+          ),
           backgroundColor: AppColors.MAIN_COLOR,
         ),
         body: Container(
@@ -54,19 +60,15 @@ class SelectedQuestionPage extends StatelessWidget {
                   ),
                 ),
               ),
-
-                      ...(selectedQuestion!.answers!
-                      as List<dynamic>)
-                          .map(
-                            (answer) => Answer(
-                          answerText: answer['answer'].toString(),
-                          answerColor:
-                              answer['value'] == true ? Colors.green : Colors.red,
-
-                          answerTap: () {},
-                        ),
-                      ),
-                      /* Answer(
+              ...(selectedQuestion!.answers! as List<dynamic>).map(
+                (answer) => Answer(
+                  answerText: answer['answer'].toString(),
+                  answerColor:
+                      answer['value'] == true ? Colors.green : Colors.red,
+                  answerTap: () {},
+                ),
+              ),
+              /* Answer(
                   answerText: selectedQuestion.answers.toString(),
                   answerColor: Colors.blue,
                   answerTap: () {
