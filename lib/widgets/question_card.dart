@@ -27,13 +27,17 @@ class QuestionCard extends StatelessWidget {
             gradient: LinearGradient(
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
-                colors: [Colors.lightBlue.withOpacity(0.9), AppColors.MAIN_COLOR,])),
+                colors: [
+                  Colors.lightBlue.withOpacity(0.9),
+                  AppColors.MAIN_COLOR,
+                ])),
         child: Center(
             child: Text(
           this.question.question.toString(),
           style: TextStyle(
             color: Colors.white,
             fontSize: 15,
+            fontWeight: FontWeight.w900,
           ),
           textAlign: TextAlign.center,
         )),

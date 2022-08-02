@@ -39,7 +39,7 @@ class QuestionListPage extends StatelessWidget {
           title: Text(
             'Fragen',
             style: TextStyle(
-                color: Colors.white, fontSize: 15, fontWeight: FontWeight.w900),
+                color: Colors.white, fontSize: 30, fontWeight: FontWeight.w900),
             textAlign: TextAlign.center,
           ),
           backgroundColor: AppColors.MAIN_COLOR,
@@ -54,7 +54,10 @@ class QuestionListPage extends StatelessWidget {
                   padding: EdgeInsets.only(top: 20, bottom: 20),
                   child: Text('Frage auswählen',
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.black)),
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w900)),
                 ),
                 Expanded(
                     child: ListView.builder(

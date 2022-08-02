@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 //für das Quiz
 
 class Answer extends StatelessWidget {
-  final String ?answerText;
+  final String? answerText;
   final Color answerColor;
-  final  VoidCallback answerTap;
+  final VoidCallback answerTap;
 
-  Answer({required this.answerText, required this.answerColor, required this.answerTap});
+  Answer(
+      {required this.answerText,
+      required this.answerColor,
+      required this.answerTap});
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +29,7 @@ class Answer extends StatelessWidget {
           answerText!,
           style: TextStyle(
             fontSize: 15.0,
+            fontWeight: FontWeight.w900,
           ),
         ),
       ),
