@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/helpers/appcolors.dart';
 import 'package:quiz_app/models/Question.dart';
-import 'package:quiz_app/screens/quiz.dart';
 import 'package:quiz_app/widgets/answer.dart';
 import 'package:provider/provider.dart';
-
-import '../models/answers.dart';
-import '../models/category.dart';
 import '../services/category_selection_service.dart';
-import '../widgets/question_card.dart';
 
 class SelectedQuestionPage extends StatelessWidget {
   Question? selectedQuestion;
   Color? color;
 
-  //SelectedQuestionPage({required this.selectedQuestion});
   @override
   Widget build(BuildContext context) {
     CategorySelectionService catSelection =
@@ -22,19 +16,18 @@ class SelectedQuestionPage extends StatelessWidget {
     selectedQuestion = catSelection.selectedQuestion!;
     return Scaffold(
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             'Frage',
             style: TextStyle(
-                color: Colors.white, fontSize: 30, fontWeight: FontWeight.w900),
+                color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
           backgroundColor: AppColors.MAIN_COLOR,
         ),
-        body: Container(
-            child: Center(
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
+        body: Center(
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
               const SizedBox(
                 height: 25.0,
               ),
@@ -60,7 +53,7 @@ class SelectedQuestionPage extends StatelessWidget {
                   ),
                 ),
               ),
-              ...(selectedQuestion!.answers! as List<dynamic>).map(
+              ...(selectedQuestion!.answers!).map(
                 (answer) => Answer(
                   answerText: answer['answer'].toString(),
                   answerColor:
@@ -68,23 +61,9 @@ class SelectedQuestionPage extends StatelessWidget {
                   answerTap: () {},
                 ),
               ),
-              /* Answer(
-                  answerText: selectedQuestion.answers.toString(),
-                  answerColor: Colors.blue,
-                  answerTap: () {
-                    // if answer was already selected then nothing happens onTap
-                  })*/
-              /*
-              ListView.builder(
-                  itemCount: selectedQuestion.answers?.length,
-                  itemBuilder: (ctx, index) => Column(children: [
-                        ListTile(
-                          title: Text(selectedQuestion.answers![index]['answer']
-                              as String),
-                        )
-                      ]))
-
-                      */
-            ]))));
+            ]
+            )
+        )
+    );
   }
 }

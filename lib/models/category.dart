@@ -2,12 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter/foundation.dart';
-import 'dart:ui';
-
-import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
-import 'package:quiz_app/models/CaseStudy.dart';
 
 import 'Question.dart';
 
@@ -30,6 +24,7 @@ class Category {
     //required this.casestudy
   });
 
+  //to map a json structure
   factory Category.fromJson(Map<String, dynamic> json) {
     return Category(
       color: Color(int.parse('0xFF' + json['color'])),
@@ -39,15 +34,12 @@ class Category {
       title: json['title'],
       text: json['text'],
 
-      //casestudy: Casestudy.fromJsonArray(json['casestudys']),
-
-      //method from subcategory class
     );
   }
 }
 
 
-  //to map a json structure
+
 
 
 

@@ -1,57 +1,31 @@
+
 class Answers {
+  //properties
   String? answer;
   bool? value;
 
   Answers({required this.answer, required this.value});
 
-/*   Answers.fromJson(Map json) {
-     answer = json['answer'];
-     value = json['value'];
-   }*/
-
-  /*  Map<String, dynamic> toJson() {
-     final Map<String, dynamic> data = new Map<String, dynamic>();
-     data['answer'] = this.answer;
-    data['value'] = this.value;
-     return data;
-   }
-   Map<dynamic, dynamic> toMap() {
-     return {
-       'answer': answer,
-       'value': value,
-     };
-   }
-   */
   @override
+  //converter
   String toString() {
     return '$answer '
         '$value';
   }
 
+  //factory to get Answers from Firebase
   factory Answers.fromJson(Map<String, dynamic> json) {
-    print('this');
-    print(json['answer'] as String);
-    print(json['value'] as bool);
     return Answers(
         answer: json['answer'] as String, value: json['value'] as bool);
   }
-  // String toJson() => json.encode(toMap());
 
-  getAnswers(json) {
-    answer = json['answer'] as String;
-    value = json['value'] as bool;
-
-    //answer.forEach((k, v) => print("Key : $k, Value : $v"));
-  }
-
+  //put answers into a list
   static List<Answers> fromJsonArray(List<dynamic> jsonArray) {
     List<Answers> answersFromJson = [];
-    print('list created');
-    jsonArray.forEach((jsonData) {
+    for (var jsonData in jsonArray) {
       answersFromJson.add(Answers.fromJson(jsonData));
-    });
-    print('answersFromJson');
-    print(answersFromJson);
+    }
+
     return answersFromJson;
   }
 }

@@ -5,7 +5,6 @@ import 'package:quiz_app/screens/quiz.dart';
 import 'package:quiz_app/services/category_selection_service.dart';
 import 'package:provider/provider.dart';
 
-import '../helpers/Utils.dart';
 import '../models/Question.dart';
 import '../models/category.dart';
 
@@ -27,8 +26,8 @@ class SelectedCategoryPage extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             selectedCategory!.name,
-            style: TextStyle(
-                color: Colors.white, fontSize: 30, fontWeight: FontWeight.w900),
+            style: const TextStyle(
+                color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
           backgroundColor: AppColors.MAIN_COLOR,
@@ -62,19 +61,19 @@ class SelectedCategoryPage extends StatelessWidget {
                                         Text(selectedCategory!.text.toString()),
                                   ));
                         },
-                        child: Text(
-                          'Fallbeispiel',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
                         style: ElevatedButton.styleFrom(
                           primary: AppColors.MAIN_COLOR,
                           onPrimary: Colors.white,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(50)),
-                          padding: EdgeInsets.all(25),
+                          padding: const EdgeInsets.all(25),
+                        ),
+                        child: const Text(
+                          'Fallbeispiel',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
                         )),
                   ),
                   Padding(
@@ -87,19 +86,19 @@ class SelectedCategoryPage extends StatelessWidget {
                               MaterialPageRoute(
                                   builder: (context) => QuestionListPage()));
                         },
-                        child: Text(
-                          'Fragen',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
                         style: ElevatedButton.styleFrom(
                           primary: AppColors.MAIN_COLOR,
                           onPrimary: Colors.white,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(50)),
-                          padding: EdgeInsets.all(25),
+                          padding: const EdgeInsets.all(25),
+                        ),
+                        child: const Text(
+                          'Fragen',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
                         )),
                   ),
                   Padding(
@@ -110,19 +109,19 @@ class SelectedCategoryPage extends StatelessWidget {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) => Quiz()));
                         },
-                        child: Text(
-                          'Quiz',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
                         style: ElevatedButton.styleFrom(
                           primary: AppColors.MAIN_COLOR,
                           onPrimary: Colors.white,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(50)),
-                          padding: EdgeInsets.all(25),
+                          padding: const EdgeInsets.all(25),
+                        ),
+                        child: const Text(
+                          'Quiz',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
                         )),
                   ),
                 ],

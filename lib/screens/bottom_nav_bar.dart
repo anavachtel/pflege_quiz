@@ -7,6 +7,7 @@ import '../helpers/appcolors.dart';
 import '../services/profile_service.dart';
 import 'categories_list.dart';
 
+//App starts here after authentication
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({Key? key}) : super(key: key);
 
@@ -16,6 +17,7 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   final List<Map<String, Object>> _pages = [
+    //bottomnavbar items
     {'page': CategoryListPage(), 'title': 'Kategorien'},
     {'page': Profile(), 'title': 'Profil'},
   ];
@@ -32,17 +34,18 @@ class _BottomNavBarState extends State<BottomNavBar> {
     ProfileService profilService =
         Provider.of<ProfileService>(context, listen: false);
 
+    //frontend
     return Scaffold(
       appBar: AppBar(
         title: Text(
           _pages[_selectedPageIndex]['title'] as String,
-          style: TextStyle(
-              color: Colors.white, fontSize: 30, fontWeight: FontWeight.w900),
+          style: const TextStyle(
+              color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
         actions: [
           IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.follow_the_signs_outlined,
                 size: 35,
               ),
@@ -58,6 +61,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       ),
       body: _pages[_selectedPageIndex]['page'] as Widget,
       bottomNavigationBar: BottomNavigationBar(
+        //select tapped page
         onTap: _selectPage,
         backgroundColor: AppColors.MAIN_COLOR,
         unselectedItemColor: Colors.blue,

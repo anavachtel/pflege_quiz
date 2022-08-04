@@ -1,11 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:quiz_app/screens/welcome_page.dart';
 
-import '../models/loginuser.dart';
 import '../models/FirebaseUser.dart';
-import '../screens/register.dart';
+import '../models/loginuser.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -50,7 +46,6 @@ class AuthService {
 
       User? user = userCredential.user;
 
-      // await DatabaseService(uid: user.uid).updateUserData("Tom");
 
       return _firebaseUser(user);
     } on FirebaseAuthException catch (e) {
@@ -68,10 +63,4 @@ class AuthService {
     }
   }
 
-/*
-  Future<bool> isUserLoggedIn() async {
-    var user = await _auth.currentUser();
-    return user != null;
-
-    */
 }

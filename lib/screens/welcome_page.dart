@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quiz_app/screens/login.dart';
 import 'package:quiz_app/screens/register.dart';
-import 'package:quiz_app/services/login_service.dart';
-import 'package:provider/provider.dart';
 
 import '../helpers/appcolors.dart';
-import 'bottom_nav_bar.dart';
-import 'categories_list.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class WelcomePage extends StatelessWidget {
   @override
@@ -38,12 +34,12 @@ class WelcomePage extends StatelessWidget {
                           height: 180,
                           width: 180,
                           color: AppColors.MAIN_COLOR,
-                          child: Icon(FontAwesomeIcons.userNurse,
+                          child: const Icon(FontAwesomeIcons.userNurse,
                               color: Colors.white, size: 100),
                         )),
                       ),
-                      SizedBox(height: 50),
-                      Text(
+                      const SizedBox(height: 50),
+                      const Text(
                         'Willkommen',
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -51,11 +47,11 @@ class WelcomePage extends StatelessWidget {
                             fontSize: 40,
                             fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 30),
-                      Text('Die App für Azubis in der Pflege.',
+                      const SizedBox(height: 30),
+                      const Text('Die App für Azubis in der Pflege.',
                           textAlign: TextAlign.center,
                           style: TextStyle(color: Colors.white, fontSize: 20)),
-                      SizedBox(height: 40),
+                      const SizedBox(height: 40),
                       Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: FlatButton(
@@ -73,7 +69,7 @@ class WelcomePage extends StatelessWidget {
                             'Login',
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 16,
+                                fontSize: 20,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -108,7 +104,7 @@ class WelcomePage extends StatelessWidget {
                                     child: const Text('Registrieren',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                            fontSize: 16,
+                                            fontSize: 20,
                                             color: AppColors.MAIN_COLOR,
                                             fontWeight: FontWeight.bold)),
                                   ),

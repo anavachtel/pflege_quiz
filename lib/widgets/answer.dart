@@ -29,7 +29,6 @@ class Answer extends StatelessWidget {
           answerText!,
           style: TextStyle(
             fontSize: 15.0,
-            fontWeight: FontWeight.w900,
           ),
         ),
       ),

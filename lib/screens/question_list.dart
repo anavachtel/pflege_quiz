@@ -1,19 +1,13 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:quiz_app/models/Question.dart';
-import 'package:quiz_app/screens/selected_category_page.dart';
 import 'package:quiz_app/screens/selected_question_page.dart';
 
-import 'package:quiz_app/services/category_service.dart';
 import 'package:provider/provider.dart';
 
 import '../helpers/appcolors.dart';
-import '../helpers/utils.dart';
+
 import '../models/category.dart';
 import '../services/category_selection_service.dart';
-import '../widgets/category_card.dart';
 import '../widgets/question_card.dart';
-import 'bottom_nav_bar.dart';
 
 class QuestionListPage extends StatelessWidget {
   Category? selectedCategory;
@@ -24,22 +18,12 @@ class QuestionListPage extends StatelessWidget {
         Provider.of<CategorySelectionService>(context, listen: false);
     selectedCategory = catSelection.selectedCategory;
 
-    /*  QuestionService catService =
-    Provider.of<QuestionService>(context, listen: false);
-    questions = catService.getQuestions();*/
-    /*Stream<List<Category>> getCategory() =>
-        FirebaseFirestore.instance
-            .collection('pflegequiz')
-            .snapshots()
-            .map((snapshot) =>
-            snapshot.docs.map((doc) => Category.fromJson(doc.data())).toList()
-   */
     return Scaffold(
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             'Fragen',
             style: TextStyle(
-                color: Colors.white, fontSize: 30, fontWeight: FontWeight.w900),
+                color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
           backgroundColor: AppColors.MAIN_COLOR,
@@ -56,18 +40,17 @@ class QuestionListPage extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Colors.black,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w900)),
+                          fontSize: 15,)),
                 ),
                 Expanded(
                     child: ListView.builder(
-                  itemCount: selectedCategory!.questions!.length,
+                  itemCount: selectedCategory!.questions.length,
                   itemBuilder: (BuildContext context, int index) {
                     return QuestionCard(
-                        question: selectedCategory!.questions![index],
+                        question: selectedCategory!.questions[index],
                         onCardClick: () {
                           catSelection.selectedQuestion =
-                              selectedCategory!.questions![index];
+                              selectedCategory!.questions[index];
                           Navigator.push(
                               context,
                               MaterialPageRoute(

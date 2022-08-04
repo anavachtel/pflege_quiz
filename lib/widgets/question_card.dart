@@ -36,8 +36,8 @@ class QuestionCard extends StatelessWidget {
           this.question.question.toString(),
           style: TextStyle(
             color: Colors.white,
-            fontSize: 15,
-            fontWeight: FontWeight.w900,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
           ),
           textAlign: TextAlign.center,
         )),

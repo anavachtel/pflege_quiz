@@ -1,10 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quiz_app/screens/bottom_nav_bar.dart';
-import 'package:quiz_app/screens/categories_list.dart';
 import 'package:quiz_app/screens/register.dart';
 import 'package:provider/provider.dart';
 
+import '../helpers/appcolors.dart';
 import '../models/loginuser.dart';
 import '../services/auth.dart';
 import '../services/profile_service.dart';
@@ -45,7 +45,7 @@ class _Login extends State<Login> {
           }
         },
         decoration: InputDecoration(
-            contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+            contentPadding: const EdgeInsets.all(25.0),
             hintText: "Email",
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))));
@@ -65,7 +65,7 @@ class _Login extends State<Login> {
           return null;
         },
         decoration: InputDecoration(
-            contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+            contentPadding: const EdgeInsets.all(25.0),
             hintText: "Passwort",
             suffixIcon: IconButton(
               icon:
@@ -87,7 +87,6 @@ class _Login extends State<Login> {
       },
       child: const Text(
         'Neu? Hier registrieren',
-        style: TextStyle(fontWeight: FontWeight.w900),
       ),
     );
 
@@ -97,7 +96,7 @@ class _Login extends State<Login> {
       color: Theme.of(context).primaryColor,
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
-        padding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+        padding: const EdgeInsets.fromLTRB(25.0, 25.0, 25.0, 25.0),
         onPressed: () async {
           if (_formKey.currentState!.validate()) {
             dynamic result = await _auth.signInEmailPassword(
@@ -125,7 +124,7 @@ class _Login extends State<Login> {
         child: Text(
           "Anmelden",
           style: TextStyle(
-              color: Colors.white, fontSize: 20, fontWeight: FontWeight.w900),
+              color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
       ),
@@ -135,16 +134,31 @@ class _Login extends State<Login> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text(
-          'Anmeldung',
+          'Login',
           style: TextStyle(
-              color: Colors.white, fontSize: 30, fontWeight: FontWeight.w900),
+              color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
         backgroundColor: Theme.of(context).primaryColor,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+      body:
+      Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+          //round container widget
+          Center(
+          child: ClipOval(
+          child: Container(
+            height: 180,
+            width: 180,
+            color: AppColors.MAIN_COLOR,
+            child: const Icon(FontAwesomeIcons.userNurse,
+                color: Colors.white, size: 100),
+          )),
+    ),
+
           Form(
             key: _formKey,
             child: Padding(
@@ -167,6 +181,7 @@ class _Login extends State<Login> {
           ),
         ],
       ),
+    )
     );
   }
 }

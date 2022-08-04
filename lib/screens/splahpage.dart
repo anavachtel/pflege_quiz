@@ -1,9 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:quiz_app/screens/welcome_page.dart';
 import 'package:quiz_app/services/category_service.dart';
-import 'package:quiz_app/services/profile_service.dart';
-import 'package:provider/provider.dart';
 
 import '../firebase_options.dart';
 import '../helpers/appcolors.dart';
@@ -44,7 +43,7 @@ class SplashPage extends StatelessWidget {
             child: Center(
               child: Stack(
                 children: [
-                  Align(
+                  const Align(
                       alignment: Alignment.center,
                       child: Icon(Icons.account_circle_rounded,
                           color: Colors.white, size: 100)),

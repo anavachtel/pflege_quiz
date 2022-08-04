@@ -1,9 +1,11 @@
 import 'package:auth/auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quiz_app/screens/login.dart';
 import 'package:provider/provider.dart';
 
+import '../helpers/appcolors.dart';
 import '../models/loginuser.dart';
 import '../services/auth.dart';
 import '../services/profile_service.dart';
@@ -36,8 +38,8 @@ class _Register extends State<Register> {
         controller: _name,
         autofocus: false,
         decoration: InputDecoration(
-            contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-            hintText: "Profilename",
+            contentPadding: const EdgeInsets.all(25.0),
+            hintText: "Profilname",
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))));
 
@@ -54,7 +56,7 @@ class _Register extends State<Register> {
           }
         },
         decoration: InputDecoration(
-            contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+            contentPadding: const EdgeInsets.all(25.0),
             hintText: "Email",
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))));
@@ -74,7 +76,7 @@ class _Register extends State<Register> {
           return null;
         },
         decoration: InputDecoration(
-            contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+            contentPadding: const EdgeInsets.all(25.0),
             hintText: "Passwort",
             suffixIcon: IconButton(
               icon:
@@ -94,7 +96,7 @@ class _Register extends State<Register> {
               context, MaterialPageRoute(builder: (context) => Login()));
         },
         child: const Text('Zum Login gehen',
-            style: TextStyle(fontWeight: FontWeight.w900)));
+            ));
 
     final registerButton = Material(
       elevation: 5.0,
@@ -102,7 +104,7 @@ class _Register extends State<Register> {
       color: Theme.of(context).primaryColor,
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
-        padding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+        padding: const EdgeInsets.all(25.0),
         onPressed: () async {
           if (_formKey.currentState!.validate()) {
             dynamic result = await _auth.registerEmailPassword(
@@ -142,7 +144,7 @@ class _Register extends State<Register> {
         child: Text(
           "Registrieren",
           style: TextStyle(
-              color: Colors.white, fontSize: 20, fontWeight: FontWeight.w900),
+              color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
       ),
@@ -154,15 +156,30 @@ class _Register extends State<Register> {
         title: const Text(
           'Registrieren',
           style: TextStyle(
-              color: Colors.white, fontSize: 30, fontWeight: FontWeight.w900),
+              color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
         backgroundColor: Theme.of(context).primaryColor,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Form(
+      body:
+      Center(
+      child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        //round container widget
+        Center(
+          child: ClipOval(
+              child: Container(
+                height: 180,
+                width: 180,
+                color: AppColors.MAIN_COLOR,
+                child: const Icon(FontAwesomeIcons.userNurse,
+                    color: Colors.white, size: 100),
+              )),
+        ),
+
+        Form(
             autovalidateMode: AutovalidateMode.always,
             key: _formKey,
             child: Padding(
@@ -171,15 +188,15 @@ class _Register extends State<Register> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const SizedBox(height: 45.0),
+                  const SizedBox(height: 20.0),
                   nameField,
                   const SizedBox(height: 25.0),
                   emailField,
                   const SizedBox(height: 25.0),
                   passwordField,
-                  const SizedBox(height: 25.0),
+                //  const SizedBox(height: 25.0),
                   txtbutton,
-                  const SizedBox(height: 35.0),
+                  const SizedBox(height: 25.0),
                   registerButton,
                   const SizedBox(height: 15.0),
                 ],
@@ -188,6 +205,7 @@ class _Register extends State<Register> {
           ),
         ],
       ),
+    )
     );
   }
 }

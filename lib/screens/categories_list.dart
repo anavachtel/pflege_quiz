@@ -4,7 +4,7 @@ import 'package:quiz_app/screens/selected_category_page.dart';
 import 'package:quiz_app/services/category_service.dart';
 import 'package:provider/provider.dart';
 
-import '../helpers/utils.dart';
+
 import '../models/category.dart';
 import '../services/category_selection_service.dart';
 import '../widgets/category_card.dart';
@@ -14,22 +14,20 @@ class CategoryListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //get categories from Category Service
     CategoryService catService =
         Provider.of<CategoryService>(context, listen: false);
     CategorySelectionService catSelection =
         Provider.of<CategorySelectionService>(context, listen: false);
+    //fill list with categories by calling method
     categories = catService.getCategories();
-    /*Stream<List<Category>> getCategory() =>
-        FirebaseFirestore.instance
-            .collection('pflegequiz')
-            .snapshots()
-            .map((snapshot) =>
-            snapshot.docs.map((doc) => Category.fromJson(doc.data())).toList()
-   */
+
+    //Frontend
     return Scaffold(
         body: Stack(
       children: [
         Column(
+          // stretch = full width of phone - padding
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const Padding(
@@ -39,14 +37,16 @@ class CategoryListPage extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 15,
-                      fontWeight: FontWeight.w900)),
+                      )),
             ),
             Expanded(
+              //listview
                 child: ListView.builder(
               itemCount: categories.length,
               itemBuilder: (BuildContext context, int index) {
                 return CategoryCard(
                     category: categories[index],
+                    //select category with tap
                     onCardClick: () {
                       catSelection.selectedCategory = categories[index];
                       Navigator.push(
@@ -55,10 +55,12 @@ class CategoryListPage extends StatelessWidget {
                               builder: (context) => SelectedCategoryPage()));
                     });
               },
-            ))
+            )
+            )
           ],
         ),
       ],
-    ));
+    )
+    );
   }
 }

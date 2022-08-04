@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 
 import '../helpers/appcolors.dart';
 import '../models/Question.dart';
-import '../models/answers.dart';
 import '../models/category.dart';
 import '../services/category_selection_service.dart';
 import '../widgets/answer.dart';
@@ -75,13 +74,7 @@ class _QuizState extends State<Quiz> {
     CategorySelectionService catSelection =
         Provider.of<CategorySelectionService>(context, listen: false);
     selectedCategory = catSelection.selectedCategory;
-    print('Quiz');
     questions = selectedCategory!.questions;
-
-    print(questions);
-    print('questionss');
-
-    print(questions);
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -90,7 +83,7 @@ class _QuizState extends State<Quiz> {
         title: const Text(
           'Quiz',
           style: TextStyle(
-              color: Colors.white, fontSize: 30, fontWeight: FontWeight.w900),
+              color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
         centerTitle: true,
@@ -152,26 +145,6 @@ class _QuizState extends State<Quiz> {
               ),
             ),
 
-            /*(answer) => Answers(
-    answer: answer,
-    value: value)*/
-            /*(answer) => Answer(
-  answerText: Answers[answer].toString(),
-  answerColor: answerWasSelected
-  ? answer.values as bool
-  ? Colors.green
-      : Colors.red
-      : Colors.white,*/
-            /* answerTap: () {
-  // if answer was already selected then nothing happens onTap
-  if (answerWasSelected) {
-  return;
-  }
-  //answer is being selected
-  _questionAnswered(answer.values as bool);
-  },
-  ),
-  ),*/
             const SizedBox(height: 20.0),
             ElevatedButton(
               style: ButtonStyle(
