@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:meals_app/models/Question.dart';
-import 'package:meals_app/screens/selected_category_page.dart';
-import 'package:meals_app/screens/selected_question_page.dart';
+import 'package:quiz_app/models/Question.dart';
+import 'package:quiz_app/screens/selected_category_page.dart';
+import 'package:quiz_app/screens/selected_question_page.dart';
 
-import 'package:meals_app/services/category_service.dart';
+import 'package:quiz_app/services/category_service.dart';
 import 'package:provider/provider.dart';
 
 import '../helpers/appcolors.dart';

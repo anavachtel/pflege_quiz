@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:696791177449:android:b2c30b09a1eaf7a65e7878",
         "android_client_info": {
-          "package_name": "com.example.meals_app"
+          "package_name": "com.example.quiz_app"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "696791177449-5retk4irko49ggc8qi6uvqdk4qcboiv9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.meals_app",
+            "package_name": "com.example.quiz_app",
             "certificate_hash": "024931d9af39049d4ccbce3d5e46baef33b21b41"
           }
         },
@@ -42,7 +42,7 @@
               "client_id": "696791177449-e42gntlfq3jo8hvvclgk7v2u6qvkfkui.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.mealsApp"
+                "bundle_id": "com.example.quiz_app"
               }
             }
           ]

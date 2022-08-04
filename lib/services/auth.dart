@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:meals_app/screens/welcome_page.dart';
+import 'package:quiz_app/screens/welcome_page.dart';
 
 import '../models/loginuser.dart';
 import '../models/FirebaseUser.dart';

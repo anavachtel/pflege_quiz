@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:meals_app/screens/bottom_nav_bar.dart';
-import 'package:meals_app/screens/categories_list.dart';
-import 'package:meals_app/screens/register.dart';
+import 'package:quiz_app/screens/bottom_nav_bar.dart';
+import 'package:quiz_app/screens/categories_list.dart';
+import 'package:quiz_app/screens/register.dart';
 import 'package:provider/provider.dart';
 
 import '../models/loginuser.dart';

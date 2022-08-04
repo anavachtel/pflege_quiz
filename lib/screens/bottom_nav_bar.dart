@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/screens/categories_list.dart';
-import 'package:meals_app/screens/profile.dart';
-import 'package:meals_app/screens/welcome_page.dart';
+import 'package:quiz_app/screens/profile.dart';
+import 'package:quiz_app/screens/welcome_page.dart';
 import 'package:provider/provider.dart';
 
 import '../helpers/appcolors.dart';
 import '../services/profile_service.dart';
+import 'categories_list.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({Key? key}) : super(key: key);

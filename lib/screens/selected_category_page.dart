@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/helpers/appcolors.dart';
-import 'package:meals_app/screens/question_list.dart';
-import 'package:meals_app/screens/quiz.dart';
-import 'package:meals_app/services/category_selection_service.dart';
+import 'package:quiz_app/helpers/appcolors.dart';
+import 'package:quiz_app/screens/question_list.dart';
+import 'package:quiz_app/screens/quiz.dart';
+import 'package:quiz_app/services/category_selection_service.dart';
 import 'package:provider/provider.dart';
 
 import '../helpers/Utils.dart';

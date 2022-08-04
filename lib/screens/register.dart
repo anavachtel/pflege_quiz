@@ -1,7 +1,7 @@
 import 'package:auth/auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:meals_app/screens/login.dart';
+import 'package:quiz_app/screens/login.dart';
 import 'package:provider/provider.dart';
 
 import '../models/loginuser.dart';

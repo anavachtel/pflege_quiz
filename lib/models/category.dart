@@ -7,7 +7,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-import 'package:meals_app/models/CaseStudy.dart';
+import 'package:quiz_app/models/CaseStudy.dart';
 
 import 'Question.dart';
 

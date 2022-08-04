@@ -1,12 +1,12 @@
 import 'package:auth/auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:meals_app/models/FirebaseUser.dart' as FbU;
-import 'package:meals_app/models/loginuser.dart';
-import 'package:meals_app/models/profileUser.dart';
-import 'package:meals_app/screens/login.dart';
-import 'package:meals_app/screens/welcome_page.dart';
-import 'package:meals_app/services/profile_service.dart';
+import 'package:quiz_app/models/FirebaseUser.dart' as FbU;
+import 'package:quiz_app/models/loginuser.dart';
+import 'package:quiz_app/models/profileUser.dart';
+import 'package:quiz_app/screens/login.dart';
+import 'package:quiz_app/screens/welcome_page.dart';
+import 'package:quiz_app/services/profile_service.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -30,7 +30,7 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ProfileService profilService =
-        Provider.of<ProfileService>(context, listen: false);
+     Provider.of<ProfileService>(context, listen: false);
 
     profil = profilService.getProfile();
 

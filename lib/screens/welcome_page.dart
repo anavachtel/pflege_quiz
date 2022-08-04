@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/screens/login.dart';
-import 'package:meals_app/screens/register.dart';
-import 'package:meals_app/services/login_service.dart';
+import 'package:quiz_app/screens/login.dart';
+import 'package:quiz_app/screens/register.dart';
+import 'package:quiz_app/services/login_service.dart';
 import 'package:provider/provider.dart';
 
 import '../helpers/appcolors.dart';
